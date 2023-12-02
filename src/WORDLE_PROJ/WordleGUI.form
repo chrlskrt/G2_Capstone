@@ -93,7 +93,7 @@
               <tabbedpane title="User Log In"/>
             </constraints>
             <properties>
-              <background color="-1576965"/>
+              <background color="-917516"/>
               <enabled value="true"/>
             </properties>
             <border type="none"/>
