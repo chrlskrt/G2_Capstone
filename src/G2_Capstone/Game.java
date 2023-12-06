@@ -40,13 +40,12 @@ public class Game extends JFrame {
         this.setResizable(false);
         this.setVisible(true);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        loadFiles();
         createButtonListeners();
 
-        //
-        currPlayer = handler.playerslist.get(0);
-        new WordleGame(currPlayer);
-        dispose();
+        // para ditso ranis wordlegame panel
+//        currPlayer = handler.playerslist.get(0);
+//        new WordleGame(currPlayer);
+//        dispose();
     }
     Game(Player currPlayer){
         this.currPlayer = currPlayer;
@@ -55,7 +54,8 @@ public class Game extends JFrame {
     }
     Game(){
         setUp();
-        //displayWelcome();
+        loadFiles();
+        displayWelcome();
     }
 
     public void loadFiles(){
