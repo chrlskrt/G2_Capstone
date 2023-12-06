@@ -9,10 +9,19 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class HandlePlayers {
+    private static HandlePlayers instance = null;
     ArrayList<Player> playerslist = null;
-    public HandlePlayers(){
+    public static HandlePlayers getInstance(){
+        if (instance == null){
+            instance = new HandlePlayers();
+        }
+
+        return instance;
+    }
+    private HandlePlayers(){
         playerslist = new ArrayList<>();
     }
+
     public void sort (){
         if (playerslist.isEmpty()){
             return;
@@ -52,7 +61,7 @@ public class HandlePlayers {
     }
     public void addtoFile(Player p){
         try {
-            BufferedWriter bw= new BufferedWriter(new FileWriter("C:\\Users\\Acer\\Desktop\\capstone\\src\\WORDLE_PROJ\\players.txt", true));
+            BufferedWriter bw= new BufferedWriter(new FileWriter("C:\\Users\\Acer\\Desktop\\capstone\\src\\G2_Capstone\\players.txt", true));
             bw.append(p.getUsername() + " / " + String.valueOf(p.getPassword()) + " / " + p.getScore() + " / " + p.isBanned());
             bw.newLine();
             bw.flush();

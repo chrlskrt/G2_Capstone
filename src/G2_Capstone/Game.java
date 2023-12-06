@@ -30,7 +30,7 @@ public class Game extends JFrame {
     private JLabel jlblSignUserErr;
     private JLabel jlblSignPassErr;
     private JButton btnViewLeaderboards;
-    HandlePlayers handler = new HandlePlayers();
+    HandlePlayers handler = HandlePlayers.getInstance();
     Player currPlayer = null;
 
     public void setUp(){
@@ -42,6 +42,11 @@ public class Game extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         loadFiles();
         createButtonListeners();
+
+        //
+        currPlayer = handler.playerslist.get(0);
+        new WordleGame(currPlayer);
+        dispose();
     }
     Game(Player currPlayer){
         this.currPlayer = currPlayer;
@@ -50,13 +55,13 @@ public class Game extends JFrame {
     }
     Game(){
         setUp();
-        displayWelcome();
+        //displayWelcome();
     }
 
     public void loadFiles(){
         try {
 
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Acer\\Desktop\\capstone\\src\\G2_Capstone\\players.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("players.txt"));
             String playerInfo;
 
             while((playerInfo = br.readLine()) != null){
@@ -185,8 +190,12 @@ public class Game extends JFrame {
         btnLogOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currPlayer = null;
-                displayWelcome();
+                int i = JOptionPane.showConfirmDialog(null, "Are you sure?","Confirming log-out request...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+
+                if (i == JOptionPane.YES_OPTION){
+                    currPlayer = null;
+                    displayWelcome();
+                }
             }
         });
 
