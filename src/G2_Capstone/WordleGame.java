@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static G2_Capstone.Main.playSound;
+
 public class WordleGame extends JFrame{
     private JPanel jpLanding;
     private JButton btnHome;
@@ -41,7 +43,7 @@ public class WordleGame extends JFrame{
     private final HandlePlayers handler = HandlePlayers.getInstance();
     WordleGame(Player currPlayer){
         this.setTitle("Wordle Game");
-        this.setSize(600,700);
+        this.setSize(800,800);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
@@ -57,6 +59,7 @@ public class WordleGame extends JFrame{
         btnHome.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 new Game(currPlayer);
                 dispose();
             }
@@ -65,6 +68,7 @@ public class WordleGame extends JFrame{
         btnHowToPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayHowToPlay();
             }
         });
@@ -72,6 +76,7 @@ public class WordleGame extends JFrame{
         btnHowHome.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayLanding();
             }
         });
@@ -79,6 +84,7 @@ public class WordleGame extends JFrame{
         btnViewLeaderboards.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayLeaderboards();
             }
         });
@@ -86,6 +92,7 @@ public class WordleGame extends JFrame{
         btnLeadHome.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayLanding();
             }
         });
@@ -93,6 +100,7 @@ public class WordleGame extends JFrame{
         btnTip.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 Random r = new Random();
                 String tip = tips.get(r.nextInt(tips.size()));
                 JOptionPane.showMessageDialog(null, tip);
@@ -102,6 +110,7 @@ public class WordleGame extends JFrame{
         btnPlayGame.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayGameProper();
             }
         });
@@ -109,6 +118,7 @@ public class WordleGame extends JFrame{
         btnGameHome.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 int i = JOptionPane.showConfirmDialog(null, "Go back to home and discard Game?","Confirming exit...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                 if (i == JOptionPane.YES_OPTION){
@@ -121,7 +131,7 @@ public class WordleGame extends JFrame{
 
     public void loadFiles(){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("todaystip.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/todaystip.txt"));
             String line;
             while ((line = br.readLine()) != null){
                 tips.add(line);
@@ -133,7 +143,7 @@ public class WordleGame extends JFrame{
         }
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("howtoplay.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/howtoplay.txt"));
             String line;
             while ((line = br.readLine()) != null){
                 howToPlay.add(line);

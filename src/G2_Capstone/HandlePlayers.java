@@ -61,7 +61,7 @@ public class HandlePlayers {
     }
     public void addtoFile(Player p){
         try {
-            BufferedWriter bw= new BufferedWriter(new FileWriter("players.txt", true));
+            BufferedWriter bw= new BufferedWriter(new FileWriter("src/G2_Capstone/TextFiles/players.txt", true));
             bw.append(p.getUsername() + " / " + String.valueOf(p.getPassword()) + " / " + p.getScore() + " / " + p.isBanned());
             bw.newLine();
             bw.flush();

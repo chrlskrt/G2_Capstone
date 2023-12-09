@@ -1,11 +1,18 @@
 package G2_Capstone;
 
+import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.image.BufferedImage;
+import java.io.*;
+
+import static G2_Capstone.Main.playSound;
 
 public class Game extends JFrame {
     private JButton btnWelcPlay;
@@ -32,10 +39,11 @@ public class Game extends JFrame {
     private JButton btnViewLeaderboards;
     HandlePlayers handler = HandlePlayers.getInstance();
     Player currPlayer = null;
+    private BufferedImage backgroundImage;
 
     public void setUp(){
         this.setTitle("Game");
-        this.setSize(600,700);
+        this.setSize(1000,800);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
@@ -60,8 +68,7 @@ public class Game extends JFrame {
 
     public void loadFiles(){
         try {
-
-            BufferedReader br = new BufferedReader(new FileReader("players.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/players.txt"));
             String playerInfo;
 
             while((playerInfo = br.readLine()) != null){
@@ -80,6 +87,7 @@ public class Game extends JFrame {
         btnWelcPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayLogIn();
             }
         });
@@ -88,6 +96,7 @@ public class Game extends JFrame {
         btnLogLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 String user = tfLogUsername.getText();
                 char[] pass = pfLogPassword.getPassword();
 
@@ -112,6 +121,7 @@ public class Game extends JFrame {
         btnLogSign.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 jlblLogPassErr.setText("");
                 jlblLogUserErr.setText("");
                 tfLogUsername.setText("");
@@ -140,6 +150,7 @@ public class Game extends JFrame {
         btnCreateAcc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 String username = tfSignUsername.getText();
                 char[] password = pfSignPassword.getPassword();
                 String pw = String.valueOf(password);
@@ -178,6 +189,7 @@ public class Game extends JFrame {
         btnSignLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 jlblSignUserErr.setText("");
                 jlblSignPassErr.setText("");
                 tfSignUsername.setText("");
@@ -190,6 +202,7 @@ public class Game extends JFrame {
         btnLogOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 int i = JOptionPane.showConfirmDialog(null, "Are you sure?","Confirming log-out request...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                 if (i == JOptionPane.YES_OPTION){
@@ -202,22 +215,24 @@ public class Game extends JFrame {
         btnPlayWordle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 new WordleGame(currPlayer);
                 dispose();
             }
         });
 
         btnPlayMaze.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                playSound("src/G2_Capstone/Audio/click.wav");
             }
         });
 
         btnViewLeaderboards.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                playSound("src/G2_Capstone/Audio/click.wav");
             }
         });
     }
@@ -231,25 +246,41 @@ public class Game extends JFrame {
             JOptionPane.showMessageDialog(null, "Account already exists. Choose another name or log in.");
         }
     }
+    public void setBackgroundImage(String path_image){
+        try{
+            backgroundImage= ImageIO.read(new File(path_image));
+        }catch(IOException e){
+            System.out.println("Failed to set background image.");
+        }
+    }
+    public void paint(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+    }
+
     public void displayWelcome(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/roman.JPG");
         this.setContentPane(jpWelcome);
         this.revalidate();
         this.repaint();
     }
 
     public void displayLogIn(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/autumn.JPG");
         this.setContentPane(jpLogIn);
         this.revalidate();
         this.repaint();
     }
 
     public void displaySignUp(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/autumn.JPG");
         this.setContentPane(jpSignUp);
         this.revalidate();
         this.repaint();
     }
 
     public void displayHome(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/forestvillage.JPG");
         this.setContentPane(jpHomePage);
         this.revalidate();
         this.repaint();

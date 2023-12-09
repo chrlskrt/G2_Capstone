@@ -1,4 +1,4 @@
 # capstoneWordle
 final proj for OOP
 
-go to src -> WORDLE_PROJ
+go to src -> G2_Capstone
