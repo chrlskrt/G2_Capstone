@@ -1,8 +1,8 @@
 package G2_Capstone;
 
 public abstract class User{
-    String username;
-    char[] password;
+    private String username;
+    private char[] password;
 
     public User(String username, char[] password){
         this.username = username;

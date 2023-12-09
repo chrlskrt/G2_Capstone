@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="500" height="405"/>
     </constraints>
-    <properties/>
+    <properties>
+      <opaque value="false"/>
+    </properties>
     <border type="none"/>
     <children>
       <tabbedpane id="ec9f0" default-binding="true">
@@ -26,6 +28,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <opaque value="false"/>
             </properties>
             <border type="none"/>
             <children>
@@ -93,6 +96,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <opaque value="false"/>
             </properties>
             <border type="none"/>
             <children>
@@ -221,6 +225,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
+              <opaque value="false"/>
             </properties>
             <border type="none"/>
             <children>
@@ -349,6 +354,7 @@
             <properties>
               <background color="-1"/>
               <enabled value="true"/>
+              <opaque value="false"/>
             </properties>
             <border type="none"/>
             <children>

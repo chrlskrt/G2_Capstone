@@ -1,12 +1,14 @@
-package G2_Capstone.WordleGameProper;
+package G2_Capstone.WORDLE;
+
+import G2_Capstone.WORDLE.Tile;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class TilePanel extends JPanel {
     Tile[][] wordlePanel = new Tile[6][5];
-    public final int height = 400;
-    public final int width = 350;
+    public final int height = 500;
+    public final int width = 450;
     public final int ROWS = 6;
     public final int COLS = 5;
 
@@ -29,6 +31,15 @@ public class TilePanel extends JPanel {
     public Tile getLetterBox(int row, int col){
         return wordlePanel[row][col];
     }
+
+    public void refresh(){
+        for(int i = 0; i < ROWS; i++){
+            for (int j = 0; j < COLS; j++){
+                wordlePanel[i][j].refresh();
+            }
+        }
+    }
+
 //
 //    public static void main(String[] args) {
 //        JFrame frame = new JFrame();

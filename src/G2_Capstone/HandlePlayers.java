@@ -1,16 +1,14 @@
 package G2_Capstone;
 
 import javax.swing.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 public class HandlePlayers {
     private static HandlePlayers instance = null;
-    ArrayList<Player> playerslist = null;
+    public ArrayList<Player> playerslist = null;
     public static HandlePlayers getInstance(){
         if (instance == null){
             instance = new HandlePlayers();
@@ -20,6 +18,20 @@ public class HandlePlayers {
     }
     private HandlePlayers(){
         playerslist = new ArrayList<>();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/players.txt"));
+            String playerInfo;
+
+            while((playerInfo = br.readLine()) != null){
+                String[] info = playerInfo.split(" / ");
+                playerslist.add(new Player(info));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("no file. cannot continue program run.");
+        } catch (IOException e) {
+            System.out.println("incorrect");
+        }
     }
 
     public void sort (){

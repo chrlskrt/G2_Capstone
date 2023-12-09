@@ -1,4 +1,4 @@
-package G2_Capstone.WordleGameProper;
+package G2_Capstone.WORDLE;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
@@ -7,13 +7,13 @@ import java.awt.event.KeyListener;
 public class KeyTypedReader implements KeyListener {
     JFrame wordleFrame = null;
     TilePanel wordleTiles = null;
+    JPanel wordlePanel = null;
 
     public KeyTypedReader(JFrame wordleFrame, TilePanel wordleTiles){
         this.wordleFrame = wordleFrame;
         this.wordleTiles = wordleTiles;
         wordleTiles.addKeyListener(this);
     }
-
 
     // to respond to user typing a character
     @Override

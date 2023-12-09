@@ -1,6 +1,8 @@
-package G2_Capstone;
+package G2_Capstone.WORDLE;
 
-import G2_Capstone.WordleGameProper.WordleGame;
+import G2_Capstone.Game;
+import G2_Capstone.HandlePlayers;
+import G2_Capstone.Player;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -31,7 +33,6 @@ public class WordleLandingPage extends JFrame{
     private JTextField tfFourth;
     private JTextField tfFifth;
     private JPanel jpLeaderboards;
-    private JPanel jpGameProper;
     private JButton btnGameHome;
     private JButton btnLeadHome;
     private JLabel lblFirst;
@@ -39,13 +40,18 @@ public class WordleLandingPage extends JFrame{
     private JLabel lblThird;
     private JLabel lblFourth;
     private JLabel lblFifth;
+    private JButton btnEnter;
+    private JPanel jpWordleTiles;
+    private JPanel jpGameProper22;
+    private JPanel jpGamePrac;
+    private JPanel WordleTiles;
     private Player currPlayer = null;
     private final ArrayList<String> tips = new ArrayList<>();
     private final ArrayList<String> howToPlay = new ArrayList<>();
     private final HandlePlayers handler = HandlePlayers.getInstance();
     public WordleLandingPage(Player currPlayer){
         this.setTitle("Wordle Game");
-        this.setSize(800,800);
+        this.setSize(1000,800);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
@@ -53,7 +59,7 @@ public class WordleLandingPage extends JFrame{
         createActionListeners();
         loadFiles();
         this.currPlayer = currPlayer;
-        lblPlayerName.setText(currPlayer.username);
+        lblPlayerName.setText(currPlayer.getUsername());
         displayLanding();
     }
 
@@ -129,6 +135,19 @@ public class WordleLandingPage extends JFrame{
             }
         });
 
+
+//        PracHome.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                playSound("src/G2_Capstone/Audio/click.wav");
+//                int i = JOptionPane.showConfirmDialog(null, "Go back to home and discard Game?","Confirming exit...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+//
+//                if (i == JOptionPane.YES_OPTION){
+//                    displayLanding();
+//                }
+//            }
+//        });
+
     }
 
     public void loadFiles(){
@@ -191,7 +210,23 @@ public class WordleLandingPage extends JFrame{
     }
 
     public void displayGameProper(){
-        this.dispose();
-        new WordleGame(currPlayer);
+        this.setContentPane(jpGamePrac);
+        ((WordleGame) jpGamePrac).startGame();
+
+//        this.setContentPane(jpGameProper22);
+        this.revalidate();
+        this.repaint();
+
+        // this.dispose();
+        // new WordleGame(currPlayer);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+        jpGamePrac = new WordleGame(this);
+    }
+
+    public Player getPlayer(){
+        return currPlayer;
     }
 }

@@ -1,4 +1,4 @@
-package G2_Capstone.WordleGameProper;
+package G2_Capstone.WORDLE;
 
 public class TilePositionTracker {
     // STATIC CLASS

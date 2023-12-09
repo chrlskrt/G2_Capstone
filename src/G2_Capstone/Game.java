@@ -1,11 +1,8 @@
 package G2_Capstone;
 
+import G2_Capstone.WORDLE.WordleLandingPage;
+
 import javax.imageio.ImageIO;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineEvent;
-import javax.sound.sampled.LineListener;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -15,6 +12,7 @@ import java.io.*;
 import static G2_Capstone.Main.playSound;
 
 public class Game extends JFrame {
+    private BufferedImage backgroundImage;
     private JButton btnWelcPlay;
     private JPanel jpWelcome;
     private JPanel jpLogIn;
@@ -39,7 +37,6 @@ public class Game extends JFrame {
     private JButton btnViewLeaderboards;
     HandlePlayers handler = HandlePlayers.getInstance();
     Player currPlayer = null;
-    private BufferedImage backgroundImage;
 
     public void setUp(){
         this.setTitle("Game");
@@ -51,36 +48,19 @@ public class Game extends JFrame {
         createButtonListeners();
 
         // para ditso ranis wordlegame panel
-        currPlayer = handler.playerslist.get(0);
-        new WordleLandingPage(currPlayer);
-        dispose();
+//        currPlayer = handler.playerslist.get(0);
+//        new WordleLandingPage(currPlayer);
+//        dispose();
     }
-    Game(Player currPlayer){
+    public Game(Player currPlayer){
         this.currPlayer = currPlayer;
         setUp();
         displayHome();
     }
-    Game(){
-        loadFiles();
+
+    public Game(){
         setUp();
-
-       // displayWelcome();
-    }
-
-    public void loadFiles(){
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/players.txt"));
-            String playerInfo;
-
-            while((playerInfo = br.readLine()) != null){
-                String[] info = playerInfo.split(" / ");
-                handler.playerslist.add(new Player(info));
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("no file. cannot continue program run.");
-        } catch (IOException e) {
-            System.out.println("incorrect");
-        }
+        displayWelcome();
     }
 
     public void createButtonListeners(){
@@ -254,6 +234,7 @@ public class Game extends JFrame {
             System.out.println("Failed to set background image.");
         }
     }
+
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
@@ -262,8 +243,10 @@ public class Game extends JFrame {
     public void displayWelcome(){
         setBackgroundImage("src/G2_Capstone/Wallpapers/roman.JPG");
         this.setContentPane(jpWelcome);
-        this.revalidate();
+
         this.repaint();
+
+        this.revalidate();
     }
 
     public void displayLogIn(){

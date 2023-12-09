@@ -1,4 +1,4 @@
-package G2_Capstone.WordleGameProper;
+package G2_Capstone.WORDLE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -11,14 +11,20 @@ public class Tile extends JLabel{
 
     public Tile(){
         border = BorderFactory.createLineBorder(_border, 2);
-        this.setText(" ");
-        this.setSize(50,50);
+        this.setText("");
+        this.setSize(85,85);
+        this.setFont(new Font("DialogInput",Font.PLAIN, 36));
         this.setHorizontalAlignment(JLabel.CENTER);
         this.setVerticalAlignment(JLabel.CENTER);
         this.setHorizontalTextPosition(JLabel.CENTER);
         this.setForeground(Color.black);
         this.setBackground(Color.white);
         this.setOpaque(true);
+    }
+
+    public void refresh(){
+        this.setText("");
+        this.setBackground(_gray);
     }
 
 
