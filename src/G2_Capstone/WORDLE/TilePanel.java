@@ -28,7 +28,7 @@ public class TilePanel extends JPanel {
         return wordlePanel[row];
     }
 
-    public Tile getLetterBox(int row, int col){
+    public Tile getTile(int row, int col){
         return wordlePanel[row][col];
     }
 
