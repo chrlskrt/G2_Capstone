@@ -41,7 +41,7 @@ public class WordleGame extends JFrame{
     private final HandlePlayers handler = HandlePlayers.getInstance();
     WordleGame(Player currPlayer){
         this.setTitle("Wordle Game");
-        this.setSize(600,700);
+        this.setSize(800,800);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);

@@ -1,11 +1,11 @@
 package G2_Capstone;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.image.BufferedImage;
+import java.io.*;
 
 public class Game extends JFrame {
     private JButton btnWelcPlay;
@@ -32,10 +32,11 @@ public class Game extends JFrame {
     private JButton btnViewLeaderboards;
     HandlePlayers handler = HandlePlayers.getInstance();
     Player currPlayer = null;
+    private BufferedImage backgroundImage;
 
     public void setUp(){
         this.setTitle("Game");
-        this.setSize(600,700);
+        this.setSize(1000,800);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);
@@ -231,25 +232,40 @@ public class Game extends JFrame {
             JOptionPane.showMessageDialog(null, "Account already exists. Choose another name or log in.");
         }
     }
+    public void setBackgroundImage(String path_image){
+        try{
+            backgroundImage= ImageIO.read(new File(path_image));
+        }catch(IOException e){
+            System.out.println("Failed to set background image.");
+        }
+    }
+    public void paint(Graphics g) {
+        Graphics2D g2d = (Graphics2D) g;
+        g2d.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+    }
     public void displayWelcome(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/roman.JPG");
         this.setContentPane(jpWelcome);
         this.revalidate();
         this.repaint();
     }
 
     public void displayLogIn(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/autumn.JPG");
         this.setContentPane(jpLogIn);
         this.revalidate();
         this.repaint();
     }
 
     public void displaySignUp(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/autumn.JPG");
         this.setContentPane(jpSignUp);
         this.revalidate();
         this.repaint();
     }
 
     public void displayHome(){
+        setBackgroundImage("src/G2_Capstone/Wallpapers/forestvillage.JPG");
         this.setContentPane(jpHomePage);
         this.revalidate();
         this.repaint();
