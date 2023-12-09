@@ -1,11 +1,18 @@
 package G2_Capstone;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineEvent;
+import javax.sound.sampled.LineListener;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
+
+import static G2_Capstone.Main.playSound;
 
 public class Game extends JFrame {
     private JButton btnWelcPlay;
@@ -81,6 +88,7 @@ public class Game extends JFrame {
         btnWelcPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 displayLogIn();
             }
         });
@@ -89,6 +97,7 @@ public class Game extends JFrame {
         btnLogLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 String user = tfLogUsername.getText();
                 char[] pass = pfLogPassword.getPassword();
 
@@ -113,6 +122,7 @@ public class Game extends JFrame {
         btnLogSign.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 jlblLogPassErr.setText("");
                 jlblLogUserErr.setText("");
                 tfLogUsername.setText("");
@@ -141,6 +151,7 @@ public class Game extends JFrame {
         btnCreateAcc.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 String username = tfSignUsername.getText();
                 char[] password = pfSignPassword.getPassword();
                 String pw = String.valueOf(password);
@@ -179,6 +190,7 @@ public class Game extends JFrame {
         btnSignLog.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 jlblSignUserErr.setText("");
                 jlblSignPassErr.setText("");
                 tfSignUsername.setText("");
@@ -191,6 +203,7 @@ public class Game extends JFrame {
         btnLogOut.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 int i = JOptionPane.showConfirmDialog(null, "Are you sure?","Confirming log-out request...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                 if (i == JOptionPane.YES_OPTION){
@@ -203,22 +216,24 @@ public class Game extends JFrame {
         btnPlayWordle.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                playSound("src/G2_Capstone/Audio/click.wav");
                 new WordleGame(currPlayer);
                 dispose();
             }
         });
 
         btnPlayMaze.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                playSound("src/G2_Capstone/Audio/click.wav");
             }
         });
 
         btnViewLeaderboards.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                playSound("src/G2_Capstone/Audio/click.wav");
             }
         });
     }
@@ -243,6 +258,7 @@ public class Game extends JFrame {
         Graphics2D g2d = (Graphics2D) g;
         g2d.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
     }
+
     public void displayWelcome(){
         setBackgroundImage("src/G2_Capstone/Wallpapers/roman.JPG");
         this.setContentPane(jpWelcome);
