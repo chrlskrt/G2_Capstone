@@ -6,8 +6,8 @@ import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        playSound("src/G2_Capstone/Audio/fish in the pool花屋敷.wav");
         new Game();
+        playSound("src/G2_Capstone/Audio/fish in the pool花屋敷.wav");
     }
     public static void playSound(String filePath) {
         try {

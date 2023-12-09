@@ -68,8 +68,7 @@ public class Game extends JFrame {
 
     public void loadFiles(){
         try {
-
-            BufferedReader br = new BufferedReader(new FileReader("players.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/players.txt"));
             String playerInfo;
 
             while((playerInfo = br.readLine()) != null){
