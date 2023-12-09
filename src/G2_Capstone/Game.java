@@ -51,9 +51,9 @@ public class Game extends JFrame {
         createButtonListeners();
 
         // para ditso ranis wordlegame panel
-//        currPlayer = handler.playerslist.get(0);
-//        new WordleGame(currPlayer);
-//        dispose();
+        currPlayer = handler.playerslist.get(0);
+        new WordleLandingPage(currPlayer);
+        dispose();
     }
     Game(Player currPlayer){
         this.currPlayer = currPlayer;
@@ -61,9 +61,10 @@ public class Game extends JFrame {
         displayHome();
     }
     Game(){
-        setUp();
         loadFiles();
-        displayWelcome();
+        setUp();
+
+       // displayWelcome();
     }
 
     public void loadFiles(){
@@ -216,7 +217,7 @@ public class Game extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 playSound("src/G2_Capstone/Audio/click.wav");
-                new WordleGame(currPlayer);
+                new WordleLandingPage(currPlayer);
                 dispose();
             }
         });

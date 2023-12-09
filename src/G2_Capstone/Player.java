@@ -27,7 +27,7 @@ public class Player extends User implements Comparable<Player>{
         setBanned(Boolean.parseBoolean(s[3]));
     }
 
-    public Player(String username, char[] password){
+    public Player(String username, char[] password) {
         super(username, password);
         this.score = 0;
         this.isBanned = false;

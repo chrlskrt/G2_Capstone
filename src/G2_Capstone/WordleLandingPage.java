@@ -1,5 +1,7 @@
 package G2_Capstone;
 
+import G2_Capstone.WordleGameProper.WordleGame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,8 +14,8 @@ import java.util.Random;
 
 import static G2_Capstone.Main.playSound;
 
-public class WordleGame extends JFrame{
-    private JPanel jpLanding;
+public class WordleLandingPage extends JFrame{
+    private JPanel jpLandingMenu;
     private JButton btnHome;
     private JLabel lblPlayerName;
     private JButton btnPlayGame;
@@ -41,7 +43,7 @@ public class WordleGame extends JFrame{
     private final ArrayList<String> tips = new ArrayList<>();
     private final ArrayList<String> howToPlay = new ArrayList<>();
     private final HandlePlayers handler = HandlePlayers.getInstance();
-    WordleGame(Player currPlayer){
+    public WordleLandingPage(Player currPlayer){
         this.setTitle("Wordle Game");
         this.setSize(800,800);
         this.setLocationRelativeTo(null);
@@ -153,7 +155,7 @@ public class WordleGame extends JFrame{
         }
     }
     public void displayLanding(){
-        this.setContentPane(jpLanding);
+        this.setContentPane(jpLandingMenu);
         revalidate();
         repaint();
     }
@@ -189,8 +191,7 @@ public class WordleGame extends JFrame{
     }
 
     public void displayGameProper(){
-        this.setContentPane(jpGameProper);
-        revalidate();
-        repaint();
+        this.dispose();
+        new WordleGame(currPlayer);
     }
 }
