@@ -19,6 +19,7 @@ public class KeyTypedReader implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         char c = e.getKeyChar();
+        int result = checkKey(c);
         wordleTiles.getLetterBox(TilePositionTracker.getROW(), TilePositionTracker.getCOL()).setText(String.valueOf(c));
         System.out.println(c + " at row: " + TilePositionTracker.getROW() + " col: " + TilePositionTracker.getCOL());
         TilePositionTracker.setROW(TilePositionTracker.getROW() + 1);
@@ -31,7 +32,8 @@ public class KeyTypedReader implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {}
 
-    public int checkKey(String key){
+    public int checkKey(char key){
+
         return 0;
     }
 }
