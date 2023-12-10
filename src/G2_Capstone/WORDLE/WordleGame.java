@@ -14,11 +14,14 @@ public class WordleGame extends JPanel {
     TilePanel lpWordle;
     JFrame frame = null;
     Player current = null;
-    KeyTypedReader k = null;
+    WordleKeyboardListener k = null;
+    WordleEnterBTNListener e = null;
+    Word word = null;
 
     public void startGame(){
         lpWordle.requestFocusInWindow();
-
+        word.generateAnswer();
+        System.out.println(word.getAnswer());
     }
     public WordleGame(WordleLandingPage fatherFrame) {
         this.setSize(1000,800);
@@ -30,8 +33,9 @@ public class WordleGame extends JPanel {
 
         buildComponents();
 
-        k = new KeyTypedReader(fatherFrame,lpWordle);
-
+        k = new WordleKeyboardListener(this,lpWordle);
+        e = new WordleEnterBTNListener(this,lpWordle, btnEnter);
+        word = Word.getInstance();
         frame = fatherFrame;
     }
 
@@ -47,8 +51,7 @@ public class WordleGame extends JPanel {
                     int i = JOptionPane.showConfirmDialog(null, "Go back to home and discard Game?","Confirming exit...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
                     if (i == JOptionPane.YES_OPTION){
-                        endGame();
-                        ((WordleLandingPage) frame).displayLanding();
+                        exit();
                     }
             }
         });
@@ -79,5 +82,10 @@ public class WordleGame extends JPanel {
         lpWordle.refresh();
         TilePositionTracker.setROW(0);
         TilePositionTracker.setCOL(0);
+    }
+
+    public void exit(){
+        endGame();
+        ((WordleLandingPage) frame).displayLanding();
     }
 }

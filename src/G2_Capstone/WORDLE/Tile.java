@@ -5,7 +5,9 @@ import javax.swing.border.Border;
 import java.awt.*;
 
 public class Tile extends JLabel{
-    private static final Color _gray = new Color(220,220,220);
+    private static final Color _green = new Color(108,169,101);
+    private static final Color _yellow = new Color(200,182,83);
+    private static final Color _gray = new Color	(120,124,127);
     private static final Color _border = new Color(5,5,5);
     private Border border = null;
 
@@ -22,9 +24,21 @@ public class Tile extends JLabel{
         this.setOpaque(true);
     }
 
+    public void correctPlace(){
+        this.setBackground(_green);
+    }
+
+    public void incorrectPlace(){
+        this.setBackground(_yellow);
+    }
+
+    public void incorrect(){
+        this.setBackground(_gray);
+    }
+
     public void refresh(){
         this.setText("");
-        this.setBackground(_gray);
+        this.setBackground(Color.white);
     }
 
 
