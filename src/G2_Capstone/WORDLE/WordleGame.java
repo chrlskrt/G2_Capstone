@@ -13,7 +13,7 @@ public class WordleGame extends JPanel {
     JLabel lblTitle;
     TilePanel lpWordle;
     JFrame frame = null;
-    Player current = null;
+    Player player = null;
     WordleKeyboardListener k = null;
     WordleEnterBTNListener e = null;
     Word word = null;
@@ -23,7 +23,7 @@ public class WordleGame extends JPanel {
         word.generateAnswer();
         System.out.println(word.getAnswer());
     }
-    public WordleGame(WordleLandingPage fatherFrame) {
+    public WordleGame(WordleLandingPage fatherFrame, Player player) {
         this.setSize(1000,800);
         this.setLayout(null);
         btnHome = new JButton("⌂");
@@ -33,10 +33,11 @@ public class WordleGame extends JPanel {
 
         buildComponents();
 
-        k = new WordleKeyboardListener(this,lpWordle);
-        e = new WordleEnterBTNListener(this,lpWordle, btnEnter);
+        k = new WordleKeyboardListener(this,lpWordle, player);
+        e = new WordleEnterBTNListener(this,lpWordle, btnEnter, player);
         word = Word.getInstance();
         frame = fatherFrame;
+        this.player = player;
     }
 
     public void buildComponents(){

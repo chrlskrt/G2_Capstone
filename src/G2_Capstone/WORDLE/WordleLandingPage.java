@@ -203,7 +203,7 @@ public class WordleLandingPage extends JFrame{
         for (Player p : handler.playerslist){
             if (i < 5){
                 tops[i].setText(p.getUsername());
-                lblScores[i].setText(String.valueOf(p.getScore()));
+                lblScores[i].setText(String.valueOf(p.getWordleScore()));
                 i++;
             }
         }
@@ -223,7 +223,7 @@ public class WordleLandingPage extends JFrame{
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
-        jpGamePrac = new WordleGame(this);
+        jpGamePrac = new WordleGame(this, currPlayer);
     }
 
     public Player getPlayer(){

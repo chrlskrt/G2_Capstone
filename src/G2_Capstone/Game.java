@@ -188,6 +188,7 @@ public class Game extends JFrame {
 
                 if (i == JOptionPane.YES_OPTION){
                     currPlayer = null;
+                    handler.updatePlayersFile();
                     displayWelcome();
                 }
             }

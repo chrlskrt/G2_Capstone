@@ -1,15 +1,19 @@
 package G2_Capstone.WORDLE;
 
+import G2_Capstone.Player;
+
 import javax.swing.*;
 
 
 public abstract class WordleAnswerListener implements WordleAnswerHandler {
     WordleGame wordleFrame;
     TilePanel wordleTiles;
+    Player player;
 
-    public WordleAnswerListener(WordleGame wordleFrame, TilePanel wordleTiles) {
+    public WordleAnswerListener(WordleGame wordleFrame, TilePanel wordleTiles, Player player) {
         this.wordleFrame = wordleFrame;
         this.wordleTiles = wordleTiles;
+        this.player = player;
     }
 
     protected void pressedEnter(){
@@ -38,6 +42,7 @@ public abstract class WordleAnswerListener implements WordleAnswerHandler {
                     }
                     break;
                 case 1:
+                    updatePlayerScore();
                     int result = JOptionPane.showOptionDialog(wordleFrame,
                             "You won!! after " + (currentRow + 1) + " try/tries","Winning...", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                             null, options, options[0]);
@@ -56,6 +61,12 @@ public abstract class WordleAnswerListener implements WordleAnswerHandler {
         } else {
             JOptionPane.showMessageDialog(wordleFrame, "Not enough letters!");
         }
+    }
+
+    private void updatePlayerScore(){
+        int score = wordleTiles.ROWS - TilePositionTracker.getROW() + 1;
+        System.out.println("score: " + score);
+        player.updateWordleScore(score);
     }
 
 }
