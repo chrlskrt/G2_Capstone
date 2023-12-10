@@ -74,12 +74,27 @@ public class HandlePlayers {
     public void addtoFile(Player p){
         try {
             BufferedWriter bw= new BufferedWriter(new FileWriter("src/G2_Capstone/TextFiles/players.txt", true));
-            bw.append(p.getUsername() + " / " + String.valueOf(p.getPassword()) + " / " + p.getScore() + " / " + p.isBanned());
+            bw.append(p.getUsername() + " / " + String.valueOf(p.getPassword()) + " / " + p.getWordleScore() + " / " + p.isBanned());
             bw.newLine();
             bw.flush();
             bw.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error adding Player into file.");
+        }
+    }
+
+    public void updatePlayersFile(){
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("src/G2_Capstone/TextFiles/players.txt"));
+            for(Player p: playerslist){
+                bw.append(p.getUsername() + " / " + String.valueOf(p.getPassword()) + " / " + p.getWordleScore() + " / " + p.isBanned());
+                bw.newLine();
+            }
+
+            bw.flush();
+            bw.close();
+        } catch (IOException e) {
+            System.out.println("Error in updating file.");
         }
     }
 }
