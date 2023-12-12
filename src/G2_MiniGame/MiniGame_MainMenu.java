@@ -33,7 +33,7 @@ public class MiniGame_MainMenu extends JFrame {
     private JLabel jlblSignPassErr;
     private JButton btnViewLeaderboards;
     private JButton btnPlayTakyan;
-    HandlePlayers handler = HandlePlayers.getInstance();
+    PlayersHandler handler = PlayersHandler.getInstance();
     public static Player currPlayer; // global para maaccess sa tanan program files
 
     public void setUp(){
@@ -184,7 +184,6 @@ public class MiniGame_MainMenu extends JFrame {
 
         btnPlayMaze.addActionListener(e -> playSound("src/G2_MiniGame/Audio/click.wav"));
         btnPlayTakyan.addActionListener(e -> playSound("src/G2_MiniGame/Audio/click.wav"));
-        btnViewLeaderboards.addActionListener(e -> playSound("src/G2_MiniGame/Audio/click.wav"));
     }
 
     private void unsetCurrPlayer(){

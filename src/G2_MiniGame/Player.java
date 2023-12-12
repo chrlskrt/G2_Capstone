@@ -2,6 +2,9 @@ package G2_MiniGame;
 
 public class Player extends User implements Comparable<Player>{
     private int wordleScore;
+    private int mazeScore;
+    private int takyanScore;
+
     private boolean isBanned;
 
     public int getWordleScore() {
@@ -41,5 +44,20 @@ public class Player extends User implements Comparable<Player>{
         return Integer.compare(p.getWordleScore(), getWordleScore());
     }
 
+    public int getMazeScore() {
+        return mazeScore;
+    }
+
+    public void setMazeScore(int mazeScore) {
+        this.mazeScore = mazeScore;
+    }
+
+    public int getTakyanScore() {
+        return takyanScore;
+    }
+
+    public void setTakyanScore(int takyanScore) {
+        this.takyanScore = takyanScore;
+    }
 
 }
