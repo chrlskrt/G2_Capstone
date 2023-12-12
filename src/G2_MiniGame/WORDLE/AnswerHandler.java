@@ -1,12 +1,12 @@
-package G2_Capstone.WORDLE;
+package G2_MiniGame.WORDLE;
 
-public interface WordleAnswerHandler {
+public interface AnswerHandler {
 
     // 0 - not winning
     // 1 - winning
     // 2 - word not in wordlist
     static int isWinning(Tile[] answerRow){
-        Word wordHandler = Word.getInstance();
+        WordHandler wordHandler = WordHandler.getInstance();
 
         char[] userAnswer = new char[5];
 

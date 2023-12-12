@@ -1,32 +1,34 @@
-package G2_Capstone.WORDLE;
+package G2_MiniGame.WORDLE;
 
-import G2_Capstone.Player;
+import G2_MiniGame.MiniGame_MainMenu;
+import G2_MiniGame.HandlePlayers;
+
 
 import javax.swing.*;
 
 
-public abstract class WordleAnswerListener implements WordleAnswerHandler {
+public abstract class AnswerListener implements AnswerHandler {
     WordleGame wordleFrame;
     TilePanel wordleTiles;
-    Player player;
+    HandlePlayers handler;
 
-    public WordleAnswerListener(WordleGame wordleFrame, TilePanel wordleTiles, Player player) {
+    public AnswerListener(WordleGame wordleFrame, TilePanel wordleTiles) {
         this.wordleFrame = wordleFrame;
         this.wordleTiles = wordleTiles;
-        this.player = player;
+        handler = HandlePlayers.getInstance();
     }
 
     protected void pressedEnter(){
         int currentCol = TilePositionTracker.getCOL();
         int currentRow = TilePositionTracker.getROW();
         if (currentCol == wordleTiles.COLS){
-            int flag = WordleAnswerHandler.isWinning(wordleTiles.getRow(currentRow));
+            int flag = AnswerHandler.isWinning(wordleTiles.getRow(currentRow));
                 String[] options = {"Play again", "Exit"};
             switch (flag){
                 case 0:
                     if (currentRow == wordleTiles.ROWS){
                         int result = JOptionPane.showOptionDialog(wordleFrame,
-                                "GAME OVER!!!","Game over", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                                "GAME OVER!!!","OH NO NO NO GWENCHANA GWENCHANA", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                                 null, options, options[0]);
 
                         if (result == JOptionPane.YES_OPTION){
@@ -44,7 +46,7 @@ public abstract class WordleAnswerListener implements WordleAnswerHandler {
                 case 1:
                     updatePlayerScore();
                     int result = JOptionPane.showOptionDialog(wordleFrame,
-                            "You won!! after " + (currentRow + 1) + " try/tries","Winning...", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                            "You won!! after " + (currentRow + 1) + " try/tries","YOU WONN!!!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                             null, options, options[0]);
 
                     if (result == JOptionPane.YES_OPTION){
@@ -66,7 +68,8 @@ public abstract class WordleAnswerListener implements WordleAnswerHandler {
     private void updatePlayerScore(){
         int score = wordleTiles.ROWS - TilePositionTracker.getROW() + 1;
         System.out.println("score: " + score);
-        player.updateWordleScore(score);
+        MiniGame_MainMenu.currPlayer.updateWordleScore(score);
+        handler.updatePlayersFile();
     }
 
 }

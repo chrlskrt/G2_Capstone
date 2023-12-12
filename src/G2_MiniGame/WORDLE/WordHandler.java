@@ -1,4 +1,4 @@
-package G2_Capstone.WORDLE;
+package G2_MiniGame.WORDLE;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -7,25 +7,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Word {
-    private static Word instance = null;
+public class WordHandler {
+    private static WordHandler instance = null;
     private String answer;
     private final ArrayList<String> WordList;
     private final ArrayList<String> possibleAnswer;
-    public static Word getInstance(){
+    public static WordHandler getInstance(){
         if (instance == null){
-            instance = new Word();
+            instance = new WordHandler();
         }
 
         return instance;
     }
 
-    private Word(){
+    private WordHandler(){
         WordList = new ArrayList<>();
         possibleAnswer = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/words.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_MiniGame/TextFiles/words.txt"));
             String word;
             while ((word = br.readLine()) != null){
                 WordList.add(word);
@@ -37,7 +37,7 @@ public class Word {
         }
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("src/G2_Capstone/TextFiles/wordleAnswers.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("src/G2_MiniGame/TextFiles/wordleAnswers.txt"));
             String word;
             while ((word = br.readLine()) != null){
                 possibleAnswer.add(word);

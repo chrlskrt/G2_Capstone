@@ -1,4 +1,4 @@
-package G2_Capstone;
+package G2_MiniGame;
 
 public class Player extends User implements Comparable<Player>{
     private int wordleScore;

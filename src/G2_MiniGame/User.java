@@ -1,4 +1,4 @@
-package G2_Capstone;
+package G2_MiniGame;
 
 public abstract class User{
     private String username;

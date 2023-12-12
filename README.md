@@ -1,7 +1,7 @@
 # capstone
 final proj for OOP
 
-go to src -> G2_Capstone
+go to src -> G2_MiniGame
 
 
 ----------------------------

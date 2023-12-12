@@ -1,6 +1,4 @@
-package G2_Capstone.WORDLE;
-
-import G2_Capstone.WORDLE.Tile;
+package G2_MiniGame.WORDLE;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +11,7 @@ public class TilePanel extends JPanel {
     public final int COLS = 5;
 
     public TilePanel(){
+//        this.setBackground(new Color(236,236,163));
         this.setLayout(new GridLayout(ROWS,COLS,5,5));
         this.setSize(width, height);
         for (int i = 0; i < wordlePanel.length; i++){

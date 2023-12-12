@@ -1,11 +1,12 @@
-package G2_Capstone.WORDLE;
+package G2_MiniGame.WORDLE;
 
-import G2_Capstone.Player;
+import G2_MiniGame.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 
 public class WordleGame extends JPanel {
     JButton btnHome;
@@ -13,18 +14,17 @@ public class WordleGame extends JPanel {
     JLabel lblTitle;
     TilePanel lpWordle;
     JFrame frame = null;
-    Player player = null;
-    WordleKeyboardListener k = null;
-    WordleEnterBTNListener e = null;
-    Word word = null;
+    KeyboardListener k = null;
+    EnterButtonListener e = null;
+    WordHandler wordHandler = null;
 
     public void startGame(){
         lpWordle.requestFocusInWindow();
-        word.generateAnswer();
-        System.out.println(word.getAnswer());
+        wordHandler.generateAnswer();
+        System.out.println(wordHandler.getAnswer());
     }
-    public WordleGame(WordleLandingPage fatherFrame, Player player) {
-        this.setSize(1000,800);
+    public WordleGame(WordleMenu fatherFrame) {
+        this.setBackground(new Color(236,236,163));
         this.setLayout(null);
         btnHome = new JButton("⌂");
         lblTitle = new JLabel("WORDLE");
@@ -33,11 +33,10 @@ public class WordleGame extends JPanel {
 
         buildComponents();
 
-        k = new WordleKeyboardListener(this,lpWordle, player);
-        e = new WordleEnterBTNListener(this,lpWordle, btnEnter, player);
-        word = Word.getInstance();
+        k = new KeyboardListener(this,lpWordle);
+        e = new EnterButtonListener(this,lpWordle, btnEnter);
+        wordHandler = WordHandler.getInstance();
         frame = fatherFrame;
-        this.player = player;
     }
 
     public void buildComponents(){
@@ -46,27 +45,26 @@ public class WordleGame extends JPanel {
         btnHome.setBounds(0,0,50,30);
         add(btnHome);
 
-        btnHome.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                    int i = JOptionPane.showConfirmDialog(null, "Go back to home and discard Game?","Confirming exit...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        btnHome.addActionListener(e -> {
+                int i = JOptionPane.showConfirmDialog(null, "Go back to home and discard Game?","Confirming exit...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
 
-                    if (i == JOptionPane.YES_OPTION){
-                        exit();
-                    }
-            }
+                if (i == JOptionPane.YES_OPTION){
+                    exit();
+                }
         });
 
         // JLabel Title
-        lblTitle.setForeground(Color.MAGENTA);
+        lblTitle.setForeground(new Color(32,76,57));
         lblTitle.setFont(new Font("Ravie", Font.PLAIN, 36));
-        lblTitle.setOpaque(true);
+        lblTitle.setOpaque(false);
         lblTitle.setBounds(300,40,400,100);
         lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTitle.setVerticalAlignment(SwingConstants.CENTER);
         add(lblTitle);
 
         // Panel for Wordle tiles
         lpWordle.setBounds(275,150,lpWordle.width,lpWordle.height);
+        lpWordle.setOpaque(false);
         add(lpWordle);
 
         // Button for "Enter"
@@ -87,6 +85,6 @@ public class WordleGame extends JPanel {
 
     public void exit(){
         endGame();
-        ((WordleLandingPage) frame).displayLanding();
+        ((WordleMenu) frame).displayLanding();
     }
 }

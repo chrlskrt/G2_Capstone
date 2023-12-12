@@ -1,4 +1,4 @@
-package G2_Capstone.WORDLE;
+package G2_MiniGame.WORDLE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -9,10 +9,9 @@ public class Tile extends JLabel{
     private static final Color _yellow = new Color(200,182,83);
     private static final Color _gray = new Color	(120,124,127);
     private static final Color _border = new Color(5,5,5);
-    private Border border = null;
 
     public Tile(){
-        border = BorderFactory.createLineBorder(_border, 2);
+        Border border = BorderFactory.createLineBorder(_border, 2);
         this.setText("");
         this.setSize(85,85);
         this.setFont(new Font("DialogInput",Font.PLAIN, 36));
@@ -22,6 +21,7 @@ public class Tile extends JLabel{
         this.setForeground(Color.black);
         this.setBackground(Color.white);
         this.setOpaque(true);
+        this.setBorder(border);
     }
 
     public void correctPlace(){

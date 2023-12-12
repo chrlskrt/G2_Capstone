@@ -1,15 +1,13 @@
-package G2_Capstone.WORDLE;
-
-import G2_Capstone.Player;
+package G2_MiniGame.WORDLE;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class WordleKeyboardListener extends WordleAnswerListener implements KeyListener {
+public class KeyboardListener extends AnswerListener implements KeyListener {
     Tile tile;
 
-    public WordleKeyboardListener(WordleGame wordleFrame, TilePanel wordleTiles, Player player){
-        super(wordleFrame, wordleTiles, player);
+    public KeyboardListener(WordleGame wordleFrame, TilePanel wordleTiles){
+        super(wordleFrame, wordleTiles);
         wordleTiles.addKeyListener(this);
     }
 
