@@ -5,7 +5,6 @@ import G2_MiniGame.HandlePlayers;
 import G2_MiniGame.Player;
 
 import javax.swing.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
