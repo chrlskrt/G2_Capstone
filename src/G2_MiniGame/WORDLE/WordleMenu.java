@@ -162,7 +162,6 @@ public class WordleMenu extends JFrame{
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
         jpWordleGame = new WordleGame(this);
     }
 }
