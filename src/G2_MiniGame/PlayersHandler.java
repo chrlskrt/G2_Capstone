@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class HandlePlayers {
-    private static HandlePlayers instance = null;
+public class PlayersHandler {
+    private static PlayersHandler instance = null;
     private final ArrayList<Player> playersList;
    // private Player currentPlayer;
-    public static HandlePlayers getInstance(){
+    public static PlayersHandler getInstance(){
         if (instance == null){
-            instance = new HandlePlayers();
+            instance = new PlayersHandler();
         }
 
         return instance;
     }
-    private HandlePlayers(){
+    private PlayersHandler(){
         playersList = new ArrayList<>();
 
         try {
@@ -24,6 +24,7 @@ public class HandlePlayers {
             String playerInfo;
 
             while((playerInfo = br.readLine()) != null){
+                System.out.println(playerInfo);
                 String[] info = playerInfo.split(" / ");
                 playersList.add(new Player(info));
             }
@@ -43,14 +44,14 @@ public class HandlePlayers {
         Collections.sort(playersList);
     }
 
-    public int handleLogIn(String name, char[] password){
+    public int handleLogIn(String username, char[] password){
         int i = 0;
         for (Player p: playersList){
-            if (p.getUsername().equals(name) && Arrays.equals(p.getPassword(),password)){
+            if (p.getUsername().equals(username) && Arrays.equals(p.getPassword(),password)){
                 return i;
             }
 
-            if (p.getUsername().equals(name)){
+            if (p.getUsername().equals(username)){
                 return -1;
             }
             i++;
@@ -58,24 +59,24 @@ public class HandlePlayers {
         return -2;
     }
 
-    public boolean isUsernameTaken(String name){
+    public boolean isUsernameTaken(String username){
         for (Player p: playersList){
-            if (p.getUsername().equals(name)) {
+            if (p.getUsername().equals(username)) {
                 return true;
             }
         }
 
         return false;
     }
-    public void handleCreateUser(String name, char[] password){
-        Player p = new Player(name, password);
+    public void handleCreateUser(String username, char[] password){
+        Player p = new Player(username, password);
         playersList.add(p);
         addPlayerToFile(p);
     }
     public void addPlayerToFile(Player p){
         try {
             BufferedWriter bw= new BufferedWriter(new FileWriter("src/G2_MiniGame/TextFiles/players.txt", true));
-            bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.isBanned()));
+            bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ").append(String.valueOf(p.isBanned()));
             bw.newLine();
             bw.flush();
             bw.close();

@@ -1,7 +1,7 @@
 package G2_MiniGame.WORDLE;
 
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.HandlePlayers;
+import G2_MiniGame.PlayersHandler;
 
 
 import javax.swing.*;
@@ -10,12 +10,12 @@ import javax.swing.*;
 public abstract class AnswerListener implements AnswerHandler {
     WordleGame wordleFrame;
     TilePanel wordleTiles;
-    HandlePlayers handler;
+    PlayersHandler handler;
 
     public AnswerListener(WordleGame wordleFrame, TilePanel wordleTiles) {
         this.wordleFrame = wordleFrame;
         this.wordleTiles = wordleTiles;
-        handler = HandlePlayers.getInstance();
+        handler = PlayersHandler.getInstance();
     }
 
     protected void pressedEnter(){

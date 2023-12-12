@@ -1,7 +1,7 @@
 package G2_MiniGame.WORDLE;
 
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.HandlePlayers;
+import G2_MiniGame.PlayersHandler;
 import G2_MiniGame.Player;
 
 import javax.swing.*;
@@ -38,7 +38,7 @@ public class WordleMenu extends JFrame{
 
     private final ArrayList<String> tips = new ArrayList<>();
     private final ArrayList<String> howToPlay = new ArrayList<>();
-    HandlePlayers handler = HandlePlayers.getInstance();
+    PlayersHandler handler = PlayersHandler.getInstance();
 
     public WordleMenu(){
         this.setTitle("Wordle Game");
