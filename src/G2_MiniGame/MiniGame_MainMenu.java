@@ -59,8 +59,8 @@ public class MiniGame_MainMenu extends JFrame {
         displayWelcome();
 
         // pampadiritso lang sa menu choices
-        setCurrPlayer(handler.getPlayersList().get(0));
-        displayMenu();
+//        setCurrPlayer(handler.getPlayersList().get(0));
+//        displayMenu();
     }
 
     public void createButtonListeners(){
