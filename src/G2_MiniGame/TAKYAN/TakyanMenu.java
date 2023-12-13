@@ -1,8 +1,10 @@
 package G2_MiniGame.TAKYAN;
 
+import G2_MiniGame.Main;
 import G2_MiniGame.MiniGame_MainMenu;
 import G2_MiniGame.Player;
 import G2_MiniGame.PlayersHandler;
+import G2_MiniGame.TAKYAN.Entities.Ball;
 import G2_MiniGame.TAKYAN.GameScreens.TakyanGameScreen;
 
 import javax.swing.*;
@@ -79,7 +81,7 @@ public class TakyanMenu extends JFrame{
         });
     }
 
-    private void displayMenu(){
+    public void displayMenu(){
         setContentPane(jpTakyanMenu);
         revalidate();
         repaint();
@@ -117,7 +119,9 @@ public class TakyanMenu extends JFrame{
         revalidate();
         repaint();
 
+        Main.stopSound();
         ((TakyanGameScreen) jpTakyanGame).startGame();
+        Ball.GameOver = false;
     }
 
     private void createUIComponents() {

@@ -17,7 +17,6 @@ public class WordleGame extends JPanel {
     public void startGame(){
         lpWordle.requestFocusInWindow();
         wordHandler.generateAnswer();
-        System.out.println(wordHandler.getAnswer());
     }
     public WordleGame(WordleMenu fatherFrame) {
         this.setBackground(new Color(236,236,163));

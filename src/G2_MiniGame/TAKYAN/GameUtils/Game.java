@@ -1,5 +1,7 @@
 package G2_MiniGame.TAKYAN.GameUtils;
 
+import G2_MiniGame.TAKYAN.Entities.Ball;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -137,10 +139,16 @@ public class Game implements Runnable {
                 mouse = inputListener.getMouse();
 
                 //Update objects:
-                for (int i = 0; i < updaters.size(); i++) {
-                    updaters.get(i).updateWithChildren();
+
+                if(!Ball.GameOver){
+                    for (int i = 0; i < updaters.size(); i++) {
+                        updaters.get(i).updateWithChildren();
+                    }
                 }
+
             }
+
+
             if (render) {
                 frames++;
                 //Render new frame:

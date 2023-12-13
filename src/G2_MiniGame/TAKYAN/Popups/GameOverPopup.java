@@ -3,7 +3,7 @@ package G2_MiniGame.TAKYAN.Popups;
 import javax.swing.*;
 import java.awt.*;
 
-public class GameOverPopup {
+public class GameOverPopup extends JDialog{
     public JFrame frame;
     public JPanel panel;
     public GameOverPopup(){

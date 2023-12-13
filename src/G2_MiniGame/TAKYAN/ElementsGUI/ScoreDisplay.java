@@ -39,34 +39,12 @@ public class ScoreDisplay extends RenderObj {
     }
 
     public void recordScore(){
-//        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/G2_MiniGame/TAKYAN/scores.txt", true))) {
-//            writer.write(getScore() + "");
-//            writer.newLine();
-//            System.out.println("Score successfully added to the file.");
-//        } catch (IOException e) {
-//            System.out.println("Error recording takyan score.");
-//        }
-//        resetScore();
-
         MiniGame_MainMenu.currentPlayer.setTakyanScore(getScore());
         handler.updatePlayersFile();
         resetScore();
     }
 
     public static int getHighScore(){
-//        int highScore = 0;
-//        try (BufferedReader reader = new BufferedReader(new FileReader("src/G2_MiniGame/TAKYAN/scores.txt"))) {
-//            String score;
-//
-//            while ((score = reader.readLine()) != null) {
-//                System.out.println(score);
-//                highScore = Math.max(highScore, Integer.parseInt(score));
-//            }
-//        } catch (IOException e) {
-//            System.out.println("Error in loading Takyan score into file.");
-//        }
-//
-//        return highScore;
         return MiniGame_MainMenu.currentPlayer.getTakyanScore();
     }
 

@@ -3,7 +3,6 @@ import G2_MiniGame.TAKYAN.GameScreens.TakyanGameScreen;
 import G2_MiniGame.TAKYAN.GameUtils.Mouse;
 import G2_MiniGame.TAKYAN.GameUtils.RenderObj;
 import G2_MiniGame.TAKYAN.GameUtils.Updater;
-import G2_MiniGame.TAKYAN.Main.Main;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

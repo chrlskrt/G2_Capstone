@@ -1,10 +1,11 @@
 package G2_MiniGame.TAKYAN.Entities;
+import G2_MiniGame.Main;
 import G2_MiniGame.TAKYAN.GameScreens.TakyanGameScreen;
 import G2_MiniGame.TAKYAN.GameUtils.RenderObj;
 import G2_MiniGame.TAKYAN.GameUtils.Sound;
 import G2_MiniGame.TAKYAN.GameUtils.Updater;
-import G2_MiniGame.TAKYAN.Main.Main;
 import G2_MiniGame.TAKYAN.SoundEffects.GameSound;
+import G2_MiniGame.TAKYAN.TakyanMenu;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -24,6 +25,7 @@ public class Ball extends RenderObj implements Updater{
     private double xVelocity = 0;
     private double yVelocity = 5;
     private BufferedImage ballImage;
+    public static boolean GameOver = false;
 
     public Ball(){
         try {
@@ -55,8 +57,7 @@ public class Ball extends RenderObj implements Updater{
     }
 
     private void handleCollision(){
-//        if(xCoordinate + radius >= Main.WINDOW_SIZE_X || xCoordinate - radius <= 0){
-            if(xCoordinate + radius >= TakyanGameScreen.WINDOW_SIZE_X || xCoordinate - radius <= 0){
+        if(xCoordinate + radius >= TakyanGameScreen.WINDOW_SIZE_X || xCoordinate - radius <= 0){
             xVelocity *= -1;
             Sound.play(GameSound.wallBounceSoundEffect);
         }
@@ -66,54 +67,21 @@ public class Ball extends RenderObj implements Updater{
             Sound.play(GameSound.wallBounceSoundEffect);
         }
 
-//        if(yCoordinate + radius >= Main.WINDOW_SIZE_Y){
         if(yCoordinate + radius >= TakyanGameScreen.WINDOW_SIZE_Y){
+            GameOver = true;
             Sound.play(GameSound.gameOverSoundEffect);
-//            Sound.stop(Main.bgMusic);
             Sound.stop(TakyanGameScreen.bgMusic);
+
             xVelocity = 0;
             yVelocity = 0;
             xCoordinate = xInitial;
             yCoordinate = yInitial;
 
-            int choice = JOptionPane.showConfirmDialog(
-//                    Main.gameOverPopup.frame,
-//                    Main.gameOverPopup.panel,
-//                    "Game Over",
-//                    JOptionPane.YES_NO_OPTION,
-//                    JOptionPane.PLAIN_MESSAGE
-
-                    TakyanGameScreen.gameOverPopup.frame,
+            int choice = JOptionPane.showConfirmDialog(TakyanGameScreen.window,
                     TakyanGameScreen.gameOverPopup.panel,
                     "Game Over",
                     JOptionPane.YES_NO_OPTION,
-                    JOptionPane.PLAIN_MESSAGE
-            );
-
-//            int temp = Main.currentScore.getScore();
-//            Main.highScore.setScore(Math.max(temp, Main.highScore.getScore()));
-//            if(Main.currentHighScore < temp){
-//                Main.currentScore.recordScore();
-//                Main.currentHighScore = temp;
-//            }
-//
-//            if(choice == JOptionPane.YES_OPTION){
-//                Main.currentScore.resetScore();
-//                Sound.replay(Main.bgMusic);
-//                resetBallPosition();
-//                Main.game.run();
-//            }else{
-//                System.exit(0);
-//            }
-
-//        if(yCoordinate + radius >= Paddle.yCoordinate + Paddle.height / 2){
-//            if(xCoordinate - radius >= Paddle.xCoordinate - (Paddle.width / 2) && xCoordinate + radius <= Paddle.xCoordinate + (Paddle.width / 2)){
-//                yVelocity *= -1;
-//                Sound.play(GameSound.bounceSoundEffect);
-//                Main.currentScore.setScore(Main.currentScore.getScore() + 1);
-//                calculateXVelocity();
-//            }
-//        }
+                    JOptionPane.PLAIN_MESSAGE);
 
             int temp = TakyanGameScreen.currentScore.getScore();
             TakyanGameScreen.highScore.setScore(Math.max(temp, TakyanGameScreen.highScore.getScore()));
@@ -126,9 +94,12 @@ public class Ball extends RenderObj implements Updater{
                 TakyanGameScreen.currentScore.resetScore();
                 Sound.replay(TakyanGameScreen.bgMusic);
                 resetBallPosition();
+                GameOver = false;
+
                 TakyanGameScreen.game.run();
             }else{
-                System.exit(0);
+                TakyanGameScreen.game.stop();
+                ((TakyanMenu)TakyanGameScreen.window).displayMenu();
             }
         }
 

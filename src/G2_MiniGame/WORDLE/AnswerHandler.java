@@ -33,7 +33,7 @@ public interface AnswerHandler {
             Tile tile = answerRow[i];
             String tileLetter = tile.getText();
 
-            if (correctAnswer.contains(tileLetter)){
+            if (lettersleft.contains(tileLetter)){
                 if(correctAnswer.charAt(i) == tileLetter.charAt(0)){
                     tile.correctPlace();
                 } else {

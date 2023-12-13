@@ -1,11 +1,11 @@
 package G2_MiniGame;
 
+import G2_MiniGame.MAZE.Maze.MenuFrame;
 import G2_MiniGame.TAKYAN.TakyanMenu;
 import G2_MiniGame.WORDLE.WordleMenu;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 
 import static G2_MiniGame.Main.playSound;
 
@@ -185,7 +185,11 @@ public class MiniGame_MainMenu extends JFrame {
             dispose();
         });
 
-        btnPlayMaze.addActionListener(e -> playSound("src/G2_MiniGame/Audio/click.wav"));
+        btnPlayMaze.addActionListener(e -> {
+            playSound("src/G2_MiniGame/Audio/click.wav");
+            new MenuFrame();
+            dispose();
+        });
         btnPlayTakyan.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
             new TakyanMenu();
@@ -211,18 +215,6 @@ public class MiniGame_MainMenu extends JFrame {
             JOptionPane.showMessageDialog(null, "Account already exists. Choose another name or log in.");
         }
     }
-//    public void setBackgroundImage(String path_image){
-//        try{
-//            backgroundImage= ImageIO.read(new File(path_image));
-//        }catch(IOException e){
-//            System.out.println("Failed to set background image.");
-//        }
-//    }
-//
-//    public void paint(Graphics g) {
-//        Graphics2D g2d = (Graphics2D) g;
-//        g2d.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
-//    }
 
     public void displayWelcome(){
 //        setBackgroundImage("src/G2_MiniGame/Wallpapers/roman.JPG");
