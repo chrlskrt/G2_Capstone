@@ -3,7 +3,7 @@
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1028" height="689"/>
+      <xy x="20" y="20" width="1008" height="662"/>
     </constraints>
     <properties>
       <opaque value="false"/>
@@ -47,7 +47,7 @@
               </component>
               <component id="488af" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Ani" size="72" style="1"/>
@@ -88,7 +88,7 @@
               </component>
               <component id="63361" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="2" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <icon value="G2_MiniGame/Wallpapers/ground.jpg"/>
@@ -173,19 +173,6 @@
                   <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <component id="f75db" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value=""/>
-                </properties>
-              </component>
-              <vspacer id="522f3">
-                <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
               <vspacer id="2693a">
                 <constraints>
                   <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
@@ -246,9 +233,27 @@
                   <grid row="7" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
+              <component id="b8f6d" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/Sign-Up width.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="682f1" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/Sign-Up width.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
             </children>
           </grid>
-          <grid id="4547" binding="jpLogIn" layout-manager="GridLayoutManager" row-count="11" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="4547" binding="jpLogIn" layout-manager="GridLayoutManager" row-count="12" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="User Log In"/>
@@ -266,7 +271,7 @@
                 <properties>
                   <enabled value="true"/>
                   <font name="Ani" size="46"/>
-                  <foreground color="-1424"/>
+                  <foreground color="-4412905"/>
                   <text value="LOG IN"/>
                 </properties>
               </component>
@@ -386,11 +391,24 @@
                   <text value=""/>
                 </properties>
               </component>
-              <vspacer id="b3fc">
+              <component id="164f1" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
-              </vspacer>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/Log-In width.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="2faf7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/Log-In width.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="13a0e" binding="jpGameMenu" layout-manager="GridLayoutManager" row-count="7" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -461,15 +479,6 @@
                   <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
               </hspacer>
-              <component id="16e8f" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <icon value="G2_MiniGame/Wallpapers/bricks.png"/>
-                  <text value=""/>
-                </properties>
-              </component>
               <component id="c540b" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="2" column="3" row-span="4" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
@@ -492,6 +501,15 @@
                   <background color="-7099759"/>
                   <font name="Padauk Book" size="16"/>
                   <text value="Log Out"/>
+                </properties>
+              </component>
+              <component id="96370" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/bricks.png"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>

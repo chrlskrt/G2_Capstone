@@ -19,13 +19,13 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="53dca" binding="jpTakyanMenu" layout-manager="GridLayoutManager" row-count="8" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="53dca" binding="jpTakyanMenu" layout-manager="GridLayoutManager" row-count="11" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="Menu"/>
             </constraints>
             <properties>
-              <background color="-9442049"/>
+              <background color="-5117454"/>
             </properties>
             <border type="none"/>
             <children>
@@ -43,29 +43,29 @@
               </component>
               <component id="a6452" class="javax.swing.JButton" binding="btnViewLeaderboards">
                 <constraints>
-                  <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="8" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <alignmentY value="0.5"/>
-                  <background color="-13549492"/>
+                  <background color="-13878972"/>
                   <borderPainted value="true"/>
-                  <font name="Chilanka" size="14"/>
-                  <foreground color="-657413"/>
+                  <font name="Courier 10 Pitch" size="12"/>
+                  <foreground color="-2495007"/>
                   <text value="Leaderboards"/>
                 </properties>
               </component>
               <component id="3cc09" class="javax.swing.JButton" binding="btnHowToPlay">
                 <constraints>
-                  <grid row="5" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <alignmentY value="0.5"/>
-                  <background color="-13549492"/>
+                  <background color="-13878972"/>
                   <borderPainted value="true"/>
-                  <font name="Chilanka" size="14"/>
-                  <foreground color="-657413"/>
+                  <font name="Courier 10 Pitch" size="12"/>
+                  <foreground color="-2495007"/>
                   <inheritsPopupMenu value="false"/>
-                  <text value=" How to play? "/>
+                  <text value="How to play?"/>
                 </properties>
               </component>
               <component id="7e9ba" class="javax.swing.JButton" binding="btnPlayGame">
@@ -74,16 +74,16 @@
                 </constraints>
                 <properties>
                   <alignmentY value="0.5"/>
-                  <background color="-13549492"/>
+                  <background color="-13878972"/>
                   <borderPainted value="true"/>
-                  <font name="Chilanka" size="14"/>
-                  <foreground color="-657413"/>
-                  <text value="  Play a game!  "/>
+                  <font name="Courier 10 Pitch" size="12"/>
+                  <foreground color="-2495007"/>
+                  <text value="Play a game!"/>
                 </properties>
               </component>
               <vspacer id="bb7c9">
                 <constraints>
-                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                  <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
               <component id="decc3" class="javax.swing.JLabel">
@@ -110,19 +110,36 @@
                   <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
+              <vspacer id="67173">
+                <constraints>
+                  <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <vspacer id="f39e7">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <vspacer id="fb23f">
+                <constraints>
+                  <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
             </children>
           </grid>
-          <grid id="efbe1" binding="jpHowToPlay" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="efbe1" binding="jpHowToPlay" layout-manager="GridLayoutManager" row-count="3" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title="HowToPlay"/>
             </constraints>
-            <properties/>
+            <properties>
+              <background color="-5908225"/>
+            </properties>
             <border type="none"/>
             <children>
               <component id="93d8" class="javax.swing.JButton" binding="btnHowHome">
                 <constraints>
-                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-13549492"/>
@@ -132,25 +149,44 @@
               </component>
               <component id="7d896" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="2" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <background color="-1250141"/>
                   <font name="Dyuthi" size="40"/>
-                  <foreground color="-14660551"/>
+                  <foreground color="-13878972"/>
+                  <icon value="G2_MiniGame/Wallpapers/write_icon.png"/>
                   <text value="How to Play?"/>
                 </properties>
               </component>
               <component id="c74d5" class="javax.swing.JTextArea" binding="taHowToPlay">
                 <constraints>
-                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="5" fill="0" indent="0" use-parent-layout="false">
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="1" fill="0" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
                 <properties>
-                  <background color="-1250141"/>
+                  <background color="-5908225"/>
                   <font name="Chilanka" size="16"/>
                   <lineWrap value="false"/>
+                </properties>
+              </component>
+              <component id="3ec94" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/takyan_char1.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="56582" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/takyan_char2.png"/>
+                  <text value=""/>
                 </properties>
               </component>
             </children>
