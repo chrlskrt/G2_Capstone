@@ -1,5 +1,6 @@
 package G2_MiniGame;
 
+import G2_MiniGame.TAKYAN.TakyanMenu;
 import G2_MiniGame.WORDLE.WordleMenu;
 
 import javax.swing.*;
@@ -9,7 +10,6 @@ import java.awt.image.BufferedImage;
 import static G2_MiniGame.Main.playSound;
 
 public class MiniGame_MainMenu extends JFrame {
-    private BufferedImage backgroundImage;
     private JButton btnWelcPlay;
     private JPanel jpWelcome;
     private JPanel jpLogIn;
@@ -22,7 +22,7 @@ public class MiniGame_MainMenu extends JFrame {
     private JPasswordField pfSignPassword;
     private JButton btnCreateAcc;
     private JButton btnSignUpLogIn;
-    private JPanel jpHomePage;
+    private JPanel jpGameMenu;
     private JButton btnPlayWordle;
     private JButton btnPlayMaze;
     private JButton btnLogOut;
@@ -31,10 +31,9 @@ public class MiniGame_MainMenu extends JFrame {
     private JLabel jlLogPanelPWErr;
     private JLabel jlblSignUserErr;
     private JLabel jlblSignPassErr;
-    private JButton btnViewLeaderboards;
     private JButton btnPlayTakyan;
     PlayersHandler handler = PlayersHandler.getInstance();
-    public static Player currPlayer; // global para maaccess sa tanan program files
+    public static Player currentPlayer; // global para maaccess sa tanan program files
 
     public void setUp(){
         this.setTitle("Game");
@@ -50,7 +49,7 @@ public class MiniGame_MainMenu extends JFrame {
     public MiniGame_MainMenu(Boolean fromOtherFrame){
         if (fromOtherFrame){
             setUp();
-            displayHome();
+            displayMenu();
         }
     }
 
@@ -58,6 +57,10 @@ public class MiniGame_MainMenu extends JFrame {
     public MiniGame_MainMenu(){
         setUp();
         displayWelcome();
+
+        // pampadiritso lang sa menu choices
+        setCurrPlayer(handler.getPlayersList().get(0));
+        displayMenu();
     }
 
     public void createButtonListeners(){
@@ -81,7 +84,7 @@ public class MiniGame_MainMenu extends JFrame {
                 setCurrPlayer(handler.getPlayersList().get(indexP));
                 tfLogUsername.setText("");
                 pfLogPassword.setText("");
-                displayHome();
+                displayMenu();
             }
 
             if (indexP == -1){
@@ -151,7 +154,7 @@ public class MiniGame_MainMenu extends JFrame {
                 jlblSignPassErr.setText("");
                 tfSignUsername.setText("");
                 pfSignPassword.setText("");
-                displayHome();
+                displayMenu();
             }
         });
 
@@ -183,16 +186,20 @@ public class MiniGame_MainMenu extends JFrame {
         });
 
         btnPlayMaze.addActionListener(e -> playSound("src/G2_MiniGame/Audio/click.wav"));
-        btnPlayTakyan.addActionListener(e -> playSound("src/G2_MiniGame/Audio/click.wav"));
+        btnPlayTakyan.addActionListener(e -> {
+            playSound("src/G2_MiniGame/Audio/click.wav");
+            new TakyanMenu();
+            dispose();
+        });
     }
 
     private void unsetCurrPlayer(){
-        currPlayer = null;
+        currentPlayer = null;
       //  handler.unsetCurrentPlayer();
     }
     private void setCurrPlayer(Player p){
        // handler.setCurrentPlayer(p);
-        currPlayer = p;
+        currentPlayer = p;
     }
 
     private void checkSignUpUsername(){
@@ -241,11 +248,11 @@ public class MiniGame_MainMenu extends JFrame {
         this.repaint();
     }
 
-    public void displayHome(){
+    public void displayMenu(){
 //        setBackgroundImage("src/G2_MiniGame/Wallpapers/forestvillage.JPG");
-        this.setContentPane(jpHomePage);
+        this.setContentPane(jpGameMenu);
         this.revalidate();
         this.repaint();
-        jlPlayerName.setText(currPlayer.getUsername());
+        jlPlayerName.setText(currentPlayer.getUsername());
     }
 }

@@ -1,6 +1,8 @@
 package G2_MiniGame;
 
-public class Player extends User implements Comparable<Player>{
+import java.util.Comparator;
+
+public class Player extends User{
     private int wordleScore;
     private int takyanScore;
     private int mazeScore;
@@ -41,11 +43,6 @@ public class Player extends User implements Comparable<Player>{
         this.isBanned = false;
     }
 
-    @Override
-    public int compareTo(Player p) {
-        return Integer.compare(p.getWordleScore(), getWordleScore());
-    }
-
     public int getMazeScore() {
         return mazeScore;
     }
@@ -62,4 +59,27 @@ public class Player extends User implements Comparable<Player>{
         this.takyanScore = takyanScore;
     }
 
+    public static class SortByWordleScore implements Comparator<Player> {
+
+        @Override
+        public int compare(Player o1, Player o2) {
+            return Integer.compare(o2.getWordleScore(), o1.getWordleScore());
+        }
+    }
+
+    public static class SortByTakyanScore implements Comparator<Player>{
+
+        @Override
+        public int compare(Player o1, Player o2) {
+            return Integer.compare(o2.getTakyanScore(), o1.getTakyanScore());
+        }
+    }
+
+    public static class SortByMazeScore implements Comparator<Player>{
+
+        @Override
+        public int compare(Player o1, Player o2) {
+            return Integer.compare(o2.getMazeScore(), o1.getMazeScore());
+        }
+    }
 }

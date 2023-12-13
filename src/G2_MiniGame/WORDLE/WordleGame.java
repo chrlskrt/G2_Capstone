@@ -1,12 +1,7 @@
 package G2_MiniGame.WORDLE;
 
-import G2_MiniGame.Player;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
 public class WordleGame extends JPanel {
     JButton btnHome;
@@ -17,6 +12,7 @@ public class WordleGame extends JPanel {
     KeyboardListener k = null;
     EnterButtonListener e = null;
     WordHandler wordHandler = null;
+    Color compBG = new Color(24,57,43);
 
     public void startGame(){
         lpWordle.requestFocusInWindow();
@@ -41,6 +37,8 @@ public class WordleGame extends JPanel {
 
     public void buildComponents(){
         // Home Button
+        btnHome.setBackground(compBG);
+        btnHome.setForeground(Color.white);
         btnHome.setOpaque(true);
         btnHome.setBounds(0,0,50,30);
         add(btnHome);
@@ -68,6 +66,8 @@ public class WordleGame extends JPanel {
         add(lpWordle);
 
         // Button for "Enter"
+        btnEnter.setBackground(compBG);
+        btnEnter.setForeground(Color.white);
         btnEnter.setOpaque(true);
         btnEnter.setBounds(400,700,200,30);
         add(btnEnter);

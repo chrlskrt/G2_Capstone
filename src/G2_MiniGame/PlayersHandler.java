@@ -3,7 +3,6 @@ package G2_MiniGame;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class PlayersHandler {
     private static PlayersHandler instance = null;
@@ -24,7 +23,6 @@ public class PlayersHandler {
             String playerInfo;
 
             while((playerInfo = br.readLine()) != null){
-                System.out.println(playerInfo);
                 String[] info = playerInfo.split(" / ");
                 playersList.add(new Player(info));
             }
@@ -37,13 +35,35 @@ public class PlayersHandler {
 
 
     // tp be upgraded
-    public void sort (){
-        if (playersList.isEmpty()){
+//    public void sort (){
+//        if (playersList.isEmpty()){
+//            return;
+//        }
+//        Collections.sort(playersList);
+//    }
+    public void sortWordleScore(){
+        if (getPlayersList().isEmpty()){
             return;
         }
-        Collections.sort(playersList);
+
+        getPlayersList().sort(new Player.SortByWordleScore());
     }
 
+    public void sortTakyanScore(){
+        if (getPlayersList().isEmpty()){
+            return;
+        }
+
+        getPlayersList().sort(new Player.SortByTakyanScore());
+    }
+
+    public void sortMazeScore(){
+        if (getPlayersList().isEmpty()){
+            return;
+        }
+
+        getPlayersList().sort(new Player.SortByMazeScore());
+    }
     public int handleLogIn(String username, char[] password){
         int i = 0;
         for (Player p: playersList){
@@ -89,7 +109,7 @@ public class PlayersHandler {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/G2_MiniGame/TextFiles/players.txt"));
             for(Player p: playersList){
-                bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.isBanned()));
+                bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ").append(String.valueOf(p.isBanned()));
                 bw.newLine();
             }
 

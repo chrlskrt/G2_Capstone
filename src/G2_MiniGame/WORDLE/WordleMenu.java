@@ -49,7 +49,7 @@ public class WordleMenu extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         createActionListeners();
         loadFiles();
-        lblPlayerName.setText(MiniGame_MainMenu.currPlayer.getUsername());
+        lblPlayerName.setText(MiniGame_MainMenu.currentPlayer.getUsername());
         displayLanding();
     }
 
@@ -141,7 +141,7 @@ public class WordleMenu extends JFrame{
         JTextField[] tops = {tfFirst, tfSecond, tfThird, tfFourth, tfFifth};
         JLabel[] lblScores = {lblFirst, lblSecond, lblThird, lblFourth, lblFifth};
 
-        handler.sort();
+        handler.sortWordleScore();
         int i = 0;
         for (Player p : handler.getPlayersList()){
             if (i < 5){

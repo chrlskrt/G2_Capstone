@@ -68,7 +68,7 @@ public abstract class AnswerListener implements AnswerHandler {
     private void updatePlayerScore(){
         int score = wordleTiles.ROWS - TilePositionTracker.getROW() + 1;
         System.out.println("score: " + score);
-        MiniGame_MainMenu.currPlayer.updateWordleScore(score);
+        MiniGame_MainMenu.currentPlayer.updateWordleScore(score);
         handler.updatePlayersFile();
     }
 
