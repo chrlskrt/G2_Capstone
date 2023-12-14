@@ -7,8 +7,6 @@ public class Player extends User{
     private int takyanScore;
     private int mazeScore;
 
-    private boolean isBanned;
-
     public int getWordleScore() {
         return wordleScore;
     }
@@ -20,27 +18,16 @@ public class Player extends User{
         wordleScore += increase;
     }
 
-    public boolean isBanned() {
-        return isBanned;
-    }
-
-    public void setBanned(boolean banned) {
-        isBanned = banned;
-    }
-
     public Player(String[] s) {
         super(s[0], s[1].toCharArray());
-        // System.out.println(s[0] + "\n" + s[1] + "\n" + s[2] + "\n" + s[3]);
         setWordleScore(Integer. parseInt(s[2]));
         setTakyanScore(Integer.parseInt(s[3]));
         setMazeScore(Integer.parseInt(s[4]));
-        setBanned(Boolean.parseBoolean(s[5]));
     }
 
     public Player(String username, char[] password) {
         super(username, password);
         this.wordleScore = 0;
-        this.isBanned = false;
     }
 
     public int getMazeScore() {

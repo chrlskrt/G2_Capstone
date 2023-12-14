@@ -10,7 +10,7 @@ import java.awt.event.*;
 import static G2_MiniGame.Main.playSound;
 
 public class MiniGame_MainMenu extends JFrame {
-    private JButton btnWelcPlay;
+    private JButton btnWelcomePlay;
     private JPanel jpWelcome;
     private JPanel jpLogIn;
     private JPanel jpSignUp;
@@ -33,7 +33,7 @@ public class MiniGame_MainMenu extends JFrame {
     private JLabel jlblSignPassErr;
     private JButton btnPlayTakyan;
     PlayersHandler handler = PlayersHandler.getInstance();
-    public static Player currentPlayer; // global para maaccess sa tanan program files
+    public static Player currentPlayer;
 
     public void setUp(){
         this.setTitle("Game");
@@ -45,7 +45,6 @@ public class MiniGame_MainMenu extends JFrame {
         createButtonListeners();
     }
 
-    // constructor to call if gikan sa lain JFrame
     public MiniGame_MainMenu(Boolean fromOtherFrame){
         if (fromOtherFrame){
             setUp();
@@ -53,24 +52,19 @@ public class MiniGame_MainMenu extends JFrame {
         }
     }
 
-    // constructor to call sa main only
     public MiniGame_MainMenu(){
         setUp();
         displayWelcome();
-
-        // pampadiritso lang sa menu choices
-//        setCurrPlayer(handler.getPlayersList().get(0));
-//        displayMenu();
     }
 
     public void createButtonListeners(){
-        // Welcome Panel btn
-        btnWelcPlay.addActionListener(e -> {
+        // Welcome Panel Button
+        btnWelcomePlay.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
             displayLogIn();
         });
 
-        // Log-in panel btn
+        // Log-in panel Button
         btnLogPanelLogIn.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
             String user = tfLogUsername.getText();
@@ -167,7 +161,7 @@ public class MiniGame_MainMenu extends JFrame {
             displayLogIn();
         });
 
-        // home panel
+        // Home Panel buttons
         btnLogOut.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
             int i = JOptionPane.showConfirmDialog(null, "Are you sure?","Confirming log-out request...",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
@@ -199,10 +193,8 @@ public class MiniGame_MainMenu extends JFrame {
 
     private void unsetCurrPlayer(){
         currentPlayer = null;
-      //  handler.unsetCurrentPlayer();
     }
     private void setCurrPlayer(Player p){
-       // handler.setCurrentPlayer(p);
         currentPlayer = p;
     }
 
@@ -217,31 +209,24 @@ public class MiniGame_MainMenu extends JFrame {
     }
 
     public void displayWelcome(){
-//        setBackgroundImage("src/G2_MiniGame/Wallpapers/roman.JPG");
         this.setContentPane(jpWelcome);
-
-
-
         this.revalidate();
         this.repaint();
     }
 
     public void displayLogIn(){
-//        setBackgroundImage("src/G2_MiniGame/Wallpapers/autumn.JPG");
         this.setContentPane(jpLogIn);
         this.revalidate();
         this.repaint();
     }
 
     public void displaySignUp(){
-//        setBackgroundImage("src/G2_MiniGame/Wallpapers/autumn.JPG");
         this.setContentPane(jpSignUp);
         this.revalidate();
         this.repaint();
     }
 
     public void displayMenu(){
-//        setBackgroundImage("src/G2_MiniGame/Wallpapers/forestvillage.JPG");
         this.setContentPane(jpGameMenu);
         this.revalidate();
         this.repaint();

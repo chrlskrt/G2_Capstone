@@ -76,13 +76,6 @@ public class KeyboardListener extends AnswerListener implements KeyListener {
 
     public void typeEnter(){
         super.pressedEnter();
-//        System.out.println("enter type");
-//        int currentCol = TilePositionTracker.getCOL();
-//        int currentRow = TilePositionTracker.getROW();
-//
-//        if (currentCol < 5){
-//            JOptionPane.showMessageDialog(null,"Not enough letters");
-//        }
     }
 }
 

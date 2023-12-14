@@ -1,7 +1,6 @@
 package G2_MiniGame.MAZE;
 
 import G2_MiniGame.MAZE.Maze.MapFrame;
-import G2_MiniGame.MAZE.Maze.MapFrameGamePanel;
 import G2_MiniGame.Main;
 import G2_MiniGame.MiniGame_MainMenu;
 import G2_MiniGame.Player;
@@ -62,10 +61,10 @@ public class MazeMenu extends JFrame {
         });
 
         btnPlayGame.addActionListener(e -> {
+            Main.clip.stop();
             playSound("src/G2_MiniGame/Audio/click.wav");
-//            displayMazeGame();
 
-            // if ditso2 ra
+            dispose();
             MapFrame mapFrame = new MapFrame();
             mapFrame.start();
         });

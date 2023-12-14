@@ -44,9 +44,9 @@ public abstract class AnswerListener implements AnswerHandler {
                     }
                     break;
                 case 1:
-                    updatePlayerScore();
+                    int score = updatePlayerScore();
                     int result = JOptionPane.showOptionDialog(wordleFrame,
-                            "You won!! after " + (currentRow + 1) + " try/tries","YOU WONN!!!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                            "You won!! ( + " + score + " )","YOU WONN!!!", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                             null, options, options[0]);
 
                     if (result == JOptionPane.YES_OPTION){
@@ -65,11 +65,10 @@ public abstract class AnswerListener implements AnswerHandler {
         }
     }
 
-    private void updatePlayerScore(){
+    private int updatePlayerScore(){
         int score = wordleTiles.ROWS - TilePositionTracker.getROW() + 1;
-        System.out.println("score: " + score);
         MiniGame_MainMenu.currentPlayer.updateWordleScore(score);
         handler.updatePlayersFile();
+        return score;
     }
-
 }

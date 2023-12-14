@@ -1,14 +1,13 @@
 package G2_MiniGame.MAZE.Maze;
 
 import G2_MiniGame.MAZE.Helpers.Sound;
+import G2_MiniGame.MAZE.MazeMenu;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.beans.EventHandler;
 import java.io.File;
 import java.io.IOException;
-import java.security.Key;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,41 +22,39 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
     boolean GameOver = false;
     boolean Win = false;
     private static final boolean isRunning = true;
+    public int option_ctr = 0;
 
 
     //<--------------GAME OBJECTS----------------->
-    private final Map map = new Map();
+    private JFrame frame;
+    private Map map = new Map();
     private final Character mainCharacter = (Character) new Character.CharacterBuilder().position(75, 325).angle(4.9).build();
     private final screen3D screen = new screen3D(TOTAL_RAYS);
     public int time_score = 0;
-
-    //<------STORE KEYS TO RESPECT GAME LOOP----->
-    private static final Set<Integer> pressedKeys = new HashSet<>();
     private Type_Wall[] current_vertical_pixels = new Type_Wall[200];
     private Sound sd;
     private BulletsPanel bp = new BulletsPanel.BulletsPanelBuilder().build();
     private GameStatePanel gsp = new GameStatePanel.GameStatePanelBuilder().build();
     private int counter_instance = 0;
 
+    //<------STORE KEYS TO RESPECT GAME LOOP----->
+    private static Set<Integer> pressedKeys = new HashSet<>();
 
     //<--------------CONSTRUCTOR----------------->
-    public MapFrameGamePanel() {
+    public MapFrameGamePanel(JFrame frame) {
         setupKeyBindings();
         setPreferredSize(getPreferredSize());
         setFocusable(true);
         requestFocusInWindow();
         addMouseListener(this);
-        MenuHandler mh = new MenuHandler();
-        this.addKeyListener(mh);
+        this.frame = frame;
     }
 
     //<------------RENDERING OF OBJECTS IN SCREEN---------->
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //map.paintComponent(g);
         screen.paintComponents(g);
-        //mainCharacter.paintComponent(g);
         drawrays3D(g);
         mainCharacter.gun.paintComponent(g);
         g.setColor(Color.BLUE);
@@ -78,7 +75,23 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
             long now = System.nanoTime();
             long elapsedTime = now - lastLoopTime;
             lastLoopTime = now;
-            updateGameLogic(current_fps);
+
+
+            if(GameOver && option_ctr == 0){
+                option_ctr++;
+                int choice = JOptionPane.showConfirmDialog(null, "Final Score: " + time_score + "\nDo you Want to Play Again?", "Question", JOptionPane.YES_NO_OPTION);
+
+                if (choice == JOptionPane.YES_OPTION) {
+                    Sound.stopSound();
+                    restart_game();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Too bad!");
+                    Sound.stopSound();
+                    frame.dispose();
+                    new MazeMenu();
+                }
+            }
+
             if(map.enemy_steps.size() != 0 && map.enemy_steps.get(map.enemy_steps.size() - 1) != mainCharacter.calculate_index() && !GameOver){
                 map.enemy_steps.add(mainCharacter.calculate_index());
             }
@@ -95,7 +108,11 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
             }
 
-            processInput(elapsedTime);
+            if(!GameOver){
+                updateGameLogic(current_fps);
+                processInput(elapsedTime);
+            }
+
             repaint();
 
             try {
@@ -147,24 +164,24 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
             System.out.println("Not found");
         }
 
+        //GAME_OVER, WIN, LOSE HERE
         int game_changer = map.map[mainCharacter.calculate_index()];
-
-
         if( (game_changer == 5 || game_changer == 2 )&& !map.enemy.state && counter_instance == 0){
             GameOver = true;
 
-            System.out.println("Final score is 0");
             if(game_changer == 2){
+                //WIN
                 try {
                     gsp.setBackgroundImage("src/G2_MiniGame/MAZE/Animations/Screens/sc1.png");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
 
-                sd.play(new File("src/G2_MiniGame/MAZE/Audio/Victory.wav"), 1.5f);
-
-
+                Sound.play(new File("src/G2_MiniGame/MAZE/Audio/Victory.wav"), 1.5f);
+                System.out.println("Final score is " + time_score);
             } else {
+                //LOSE
+                time_score = 0;
                 try {
                     gsp.setBackgroundImage("src/G2_MiniGame/MAZE/Animations/Screens/sc2.png");
                 } catch (IOException e) {
@@ -172,8 +189,8 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
                 }
 
 
-                sd.play(new File("src/G2_MiniGame/MAZE/Audio/jumpscare.wav"), 1.5f);
-
+                Sound.play(new File("src/G2_MiniGame/MAZE/Audio/jumpscare.wav"), 1.5f);
+                System.out.println("Final score is " + time_score);
             }
 
             gsp.show_panel();
@@ -357,7 +374,6 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
             }
 
             current_vertical_pixels[r] = final_casted_type;
-            //mainCharacter.drawRay(ray_posx, ray_posy, g);
             //<---------------------------------------------->
 
             //<------------------------------------------------------------------------------->
@@ -468,42 +484,8 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
         if (pressedKeys.contains(KeyEvent.VK_D)) {
             mainCharacter.update_deltas(rotation_speed);
         }
-
-//        if (pressedKeys.contains(KeyEvent.VK_Q)) {
-//            if(GameOver){
-//                restart_game();
-//                System.out.println("Pressed q");
-//                restart_game();
-//                MenuFrame menu_frame = new MenuFrame();
-//                menu_frame.start();
-//
-//                // Close the current JFrame (MenuFrame)
-//                SwingUtilities.getWindowAncestor(MapFrameGamePanel.this).dispose();
-//            }
-//        }
-
-
     }
 
-    private static class MenuHandler implements KeyListener{
-
-        @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            if (e.getID() == KeyEvent.VK_BACK_SLASH){
-                System.out.println("backslashz");
-            }
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-
-        }
-    }
 
 
     private void setupKeyBindings() {
@@ -565,21 +547,6 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
                 pressedKeys.remove(KeyEvent.VK_D);
             }
         });
-
-//        // Key binding for Q
-//        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0, false), "Q pressed");
-//        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_Q, 0, true), "Q released");
-//        actionMap.put("Q pressed", new AbstractAction() {
-//            public void actionPerformed(ActionEvent e) {
-//                pressedKeys.add(KeyEvent.VK_Q);
-//            }
-//        });
-//        actionMap.put("Q released", new AbstractAction() {
-//            public void actionPerformed(ActionEvent e) {
-//                pressedKeys.remove(KeyEvent.VK_Q);
-//            }
-//        });
-
     }
 
 
@@ -588,8 +555,6 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
     public void mouseClicked(MouseEvent e) {
         if(!GameOver){
             boolean result = mainCharacter.gun.shoot(checkHit(), map.enemy);
-        } else {
-            restart_game();
         }
 
     }
@@ -616,29 +581,15 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
     //<----------------------------RESTART GAME----------------------->
     public void restart_game(){
-
-        map.move(17);
+        pressedKeys = new HashSet<>();
+        option_ctr = 0;
+        map = new Map();
         mainCharacter.gun.setBullets(5);
         mainCharacter.setPosition(75, 325);
         mainCharacter.angle = 4.9;
-        map.enemy_steps.clear();
-        map.enemy_steps.add(33);
-        map.enemy_steps.add(49);
-        map.enemy_steps.add(65);
         GameOver = false;
         time_score = 0;
         counter_instance = 0;
         gsp.hide_panel();
-
-//        System.out.println("OKIII");
-//        System.out.println("Game over " + GameOver);
-//        System.out.println("Mc index " + mainCharacter.calculate_index());
-//        System.out.println("Bullets " + mainCharacter.gun.getBullets());
-//        map.printMap();
-//        System.out.println("size " + map.enemy_steps.size());
     }
-
-
-
-
 }

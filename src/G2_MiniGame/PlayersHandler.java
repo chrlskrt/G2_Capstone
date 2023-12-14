@@ -7,7 +7,6 @@ import java.util.Arrays;
 public class PlayersHandler {
     private static PlayersHandler instance = null;
     private final ArrayList<Player> playersList;
-   // private Player currentPlayer;
     public static PlayersHandler getInstance(){
         if (instance == null){
             instance = new PlayersHandler();
@@ -33,14 +32,6 @@ public class PlayersHandler {
         }
     }
 
-
-    // tp be upgraded
-//    public void sort (){
-//        if (playersList.isEmpty()){
-//            return;
-//        }
-//        Collections.sort(playersList);
-//    }
     public void sortWordleScore(){
         if (getPlayersList().isEmpty()){
             return;
@@ -64,6 +55,7 @@ public class PlayersHandler {
 
         getPlayersList().sort(new Player.SortByMazeScore());
     }
+
     public int handleLogIn(String username, char[] password){
         int i = 0;
         for (Player p: playersList){
@@ -96,7 +88,7 @@ public class PlayersHandler {
     public void addPlayerToFile(Player p){
         try {
             BufferedWriter bw= new BufferedWriter(new FileWriter("src/G2_MiniGame/TextFiles/players.txt", true));
-            bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ").append(String.valueOf(p.isBanned()));
+            bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ");
             bw.newLine();
             bw.flush();
             bw.close();
@@ -109,7 +101,7 @@ public class PlayersHandler {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/G2_MiniGame/TextFiles/players.txt"));
             for(Player p: playersList){
-                bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ").append(String.valueOf(p.isBanned()));
+                bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ");
                 bw.newLine();
             }
 
@@ -119,18 +111,6 @@ public class PlayersHandler {
             System.out.println("Error in updating file.");
         }
     }
-
-//    public void setCurrentPlayer(Player player){
-//        currentPlayer = player;
-//    }
-
-//    public void unsetCurrentPlayer(){
-//        currentPlayer = null;
-//    }
-//
-//    public Player getCurrentPlayer(){
-//        return currentPlayer;
-//    }
 
     public ArrayList<Player> getPlayersList() {
         return playersList;

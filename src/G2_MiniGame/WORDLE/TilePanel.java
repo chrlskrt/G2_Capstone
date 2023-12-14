@@ -11,7 +11,6 @@ public class TilePanel extends JPanel {
     public final int COLS = 5;
 
     public TilePanel(){
-//        this.setBackground(new Color(236,236,163));
         this.setLayout(new GridLayout(ROWS,COLS,5,5));
         this.setSize(width, height);
         for (int i = 0; i < wordlePanel.length; i++){
@@ -38,15 +37,4 @@ public class TilePanel extends JPanel {
             }
         }
     }
-
-//
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        frame.setLayout(null);
-//        frame.setSize(500,500);
-//        frame.setVisible(true);
-//
-//        frame.add(new LettersPanel());
-//    }
 }

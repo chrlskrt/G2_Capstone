@@ -3,7 +3,6 @@ package G2_MiniGame.WORDLE;
 public class TilePositionTracker {
     // STATIC CLASS
     // Keeps track of which tile is being used
-
     private static int ROW = 0;
     private static int COL = 0;
     public static void setROW(int row){

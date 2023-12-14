@@ -8,9 +8,6 @@ import G2_MiniGame.TAKYAN.Entities.Ball;
 import G2_MiniGame.TAKYAN.GameScreens.TakyanGameScreen;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 
 public class TakyanMenu extends JFrame{
     private JPanel jpTakyanMenu;
@@ -58,25 +55,18 @@ public class TakyanMenu extends JFrame{
             dispose();
         });
 
-        btnViewLeaderboards.addActionListener(e -> {
-            displayLeaderboards();
-        });
+        btnViewLeaderboards.addActionListener(e -> displayLeaderboards());
 
-        btnHowToPlay.addActionListener(e -> {
-            displayHowToPlay();
-        });
+        btnHowToPlay.addActionListener(e -> displayHowToPlay());
 
-        btnPlayGame.addActionListener(e -> {
-            displayTakyanGameScreen();
-        });
+        btnPlayGame.addActionListener(e -> displayTakyanGameScreen());
 
         // HowToPlay tab
-        btnHowHome.addActionListener(e -> {
-            displayMenu();
-        });
+        btnHowHome.addActionListener(e -> displayMenu());
 
         // Leaderboards tab
         btnLeadHome.addActionListener(e -> {
+            Main.clip.start();
             displayMenu();
         });
     }
