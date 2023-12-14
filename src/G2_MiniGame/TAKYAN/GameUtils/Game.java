@@ -63,10 +63,6 @@ public class Game implements Runnable {
         frame.pack();
         frame.setLocationRelativeTo(null);
 
-
-//        frame.addKeyListener(inputListener);
-//        pane.addMouseMotionListener(inputListener);
-//        pane.addMouseListener(inputListener);
         keys = new boolean[256];
         mouse = new Mouse();
         inputListener = new InputListener(frame, pane);
@@ -169,8 +165,7 @@ class InputListener implements KeyListener, MouseInputListener {
     private Mouse mouse = new Mouse();
 
     private JFrame frame;
-//    private boolean[]keys;
-//    private Mouse mouse;
+
     private JLayeredPane pane;
 
 
