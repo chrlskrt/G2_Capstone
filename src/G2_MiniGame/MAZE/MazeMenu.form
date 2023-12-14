@@ -17,14 +17,59 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="92004" binding="jpMazeMenu" custom-create="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="92004" binding="jpMazeMenu" layout-manager="GridLayoutManager" row-count="4" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title=""/>
             </constraints>
             <properties/>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="6e0f3" class="javax.swing.JButton" binding="btnHome">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-13549492"/>
+                  <foreground color="-1"/>
+                  <text value="⌂"/>
+                </properties>
+              </component>
+              <component id="97c6e" class="javax.swing.JButton" binding="btnPlayGame">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <alignmentY value="0.5"/>
+                  <background color="-13878972"/>
+                  <borderPainted value="true"/>
+                  <font name="Courier 10 Pitch" size="12"/>
+                  <foreground color="-2495007"/>
+                  <text value="Play a game!"/>
+                </properties>
+              </component>
+              <component id="72ef6" class="javax.swing.JButton" binding="btnViewLeaderboards">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <alignmentY value="0.5"/>
+                  <background color="-13878972"/>
+                  <borderPainted value="true"/>
+                  <font name="Courier 10 Pitch" size="12"/>
+                  <foreground color="-2495007"/>
+                  <text value="Leaderboards"/>
+                </properties>
+              </component>
+              <component id="e523" class="javax.swing.JLabel" binding="lblPlayer">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="PlayerName"/>
+                </properties>
+              </component>
+            </children>
           </grid>
           <grid id="14f26" binding="jpLeaderboards" layout-manager="GridLayoutManager" row-count="10" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
@@ -276,6 +321,15 @@
                 </constraints>
               </vspacer>
             </children>
+          </grid>
+          <grid id="4aac6" binding="jpMazeGame" custom-create="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Untitled"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
           </grid>
         </children>
       </tabbedpane>
