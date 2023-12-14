@@ -1,6 +1,7 @@
 package G2_MiniGame;
 
 import G2_MiniGame.MAZE.Maze.MenuFrame;
+import G2_MiniGame.MAZE.MazeMenu;
 import G2_MiniGame.TAKYAN.TakyanMenu;
 import G2_MiniGame.WORDLE.WordleMenu;
 
@@ -187,7 +188,7 @@ public class MiniGame_MainMenu extends JFrame {
 
         btnPlayMaze.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
-            new MenuFrame();
+            new MazeMenu();
             dispose();
         });
         btnPlayTakyan.addActionListener(e -> {
