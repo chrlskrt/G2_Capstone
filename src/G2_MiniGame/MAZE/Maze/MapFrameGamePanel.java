@@ -2,6 +2,9 @@ package G2_MiniGame.MAZE.Maze;
 
 import G2_MiniGame.MAZE.Helpers.Sound;
 import G2_MiniGame.MAZE.MazeMenu;
+import G2_MiniGame.MiniGame_MainMenu;
+import G2_MiniGame.Player;
+import G2_MiniGame.PlayersHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,6 +30,7 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
     //<--------------GAME OBJECTS----------------->
     private JFrame frame;
+    PlayersHandler handler = PlayersHandler.getInstance();
     private Map map = new Map();
     private final Character mainCharacter = (Character) new Character.CharacterBuilder().position(75, 325).angle(4.9).build();
     private final screen3D screen = new screen3D(TOTAL_RAYS);
@@ -80,6 +84,7 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
             if(GameOver && option_ctr == 0){
                 option_ctr++;
                 int choice = JOptionPane.showConfirmDialog(null, "Final Score: " + time_score + "\nDo you Want to Play Again?", "Question", JOptionPane.YES_NO_OPTION);
+                updatePlayerScore();
 
                 if (choice == JOptionPane.YES_OPTION) {
                     Sound.stopSound();
@@ -123,6 +128,14 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
             }
 
             current_fps += 1;
+        }
+    }
+
+    private void updatePlayerScore() {
+        Player p = MiniGame_MainMenu.currentPlayer;
+        if (p.getMazeScore() < time_score){
+            p.setMazeScore(time_score);
+            handler.updatePlayersFile();
         }
     }
 
