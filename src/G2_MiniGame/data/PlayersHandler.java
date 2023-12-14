@@ -88,7 +88,7 @@ public class PlayersHandler {
     public void addPlayerToFile(Player p){
         try {
             BufferedWriter bw= new BufferedWriter(new FileWriter("src/G2_MiniGame/TextFiles/players.txt", true));
-            bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ");
+            bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore()));
             bw.newLine();
             bw.flush();
             bw.close();
@@ -101,7 +101,7 @@ public class PlayersHandler {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("src/G2_MiniGame/TextFiles/players.txt"));
             for(Player p: playersList){
-                bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore())).append(" / ");
+                bw.append(p.getUsername()).append(" / ").append(String.valueOf(p.getPassword())).append(" / ").append(String.valueOf(p.getWordleScore())).append(" / ").append(String.valueOf(p.getTakyanScore())).append(" / ").append(String.valueOf(p.getMazeScore()));
                 bw.newLine();
             }
 

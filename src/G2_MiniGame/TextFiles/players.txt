@@ -1,10 +1,9 @@
-Charlene / qwerty123 / 113 / 8 / 0 / 
-Shanley / qwerty456 / 11 / 0 / 0 / 
-HAkdog / asdfg456 / 10 / 0 / 0 / 
-Tepen / SDSelas147 / 8 / 0 / 0 / 
-Joshua / qwerty123 / 5 / 0 / 0 / 
-Zhazted / qwerty789 / 3 / 0 / 0 / 
-hahahaa / accountpassword123 / 0 / 3 / 0 / 
-hauheuhe / 15454hsdhs / 0 / 0 / 0 / 
-boogsh / booghsh123 / 0 / 0 / 0 / 
-hala / halahala123 / 0 / 0 / 0 / 
+Charlene / qwerty123 / 10 / 8 / 0
+Tepen / SDSelas147 / 8 / 8 / 0
+hahahaa / accountpassword123 / 0 / 3 / 0
+Shanley / qwerty456 / 11 / 0 / 0
+Joshua / qwerty123 / 5 / 0 / 0
+Zhazted / qwerty789 / 3 / 0 / 0
+hauheuhe / 15454hsdhs / 0 / 0 / 0
+boogsh / booghsh123 / 0 / 0 / 0
+hala / halahala123 / 0 / 0 / 0
