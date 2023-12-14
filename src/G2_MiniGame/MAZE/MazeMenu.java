@@ -64,11 +64,14 @@ public class MazeMenu extends JFrame {
         btnPlayGame.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
 //            displayMazeGame();
+
+            // if ditso2 ra
             MapFrame mapFrame = new MapFrame();
             mapFrame.start();
         });
     }
 
+    // if mag-gamit sa mapframegamepanel
     public void displayMazeGame(){
         setContentPane(jpMazeGame);
         revalidate();
