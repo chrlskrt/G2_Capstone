@@ -25,7 +25,7 @@
               <tabbedpane title="Menu"/>
             </constraints>
             <properties>
-              <background color="-5117454"/>
+              <background color="-5903386"/>
             </properties>
             <border type="none"/>
             <children>
@@ -49,7 +49,7 @@
                   <alignmentY value="0.5"/>
                   <background color="-13878972"/>
                   <borderPainted value="true"/>
-                  <font name="Courier 10 Pitch" size="12"/>
+                  <font name="Courier 10 Pitch" size="14"/>
                   <foreground color="-2495007"/>
                   <text value="Leaderboards"/>
                 </properties>
@@ -62,7 +62,7 @@
                   <alignmentY value="0.5"/>
                   <background color="-13878972"/>
                   <borderPainted value="true"/>
-                  <font name="Courier 10 Pitch" size="12"/>
+                  <font name="Courier 10 Pitch" size="14"/>
                   <foreground color="-2495007"/>
                   <inheritsPopupMenu value="false"/>
                   <text value="How to play?"/>
@@ -76,7 +76,7 @@
                   <alignmentY value="0.5"/>
                   <background color="-13878972"/>
                   <borderPainted value="true"/>
-                  <font name="Courier 10 Pitch" size="12"/>
+                  <font name="Courier 10 Pitch" size="14"/>
                   <foreground color="-2495007"/>
                   <text value="Play a game!"/>
                 </properties>
