@@ -16,4 +16,5 @@
                     -> to read "Players" from a file once, and create one instance of the class to manage Players.
 
   Structural Design Pattern:
+  + Facade - The whole Mini-Game interface
   + Flyweight - 
