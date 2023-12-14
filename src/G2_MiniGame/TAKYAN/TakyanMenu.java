@@ -108,19 +108,9 @@ public class TakyanMenu extends JFrame{
     }
 
     private void displayTakyanGameScreen(){
-//        setContentPane(jpTakyanGame);
-//        revalidate();
-//        repaint();
-//
-//        Main.stopSound();
-//        ((TakyanGameScreen) jpTakyanGame).startGame();
-//        Ball.GameOver = false;
+        Main.stopSound();
 
         dispose();
         new TakyanGameFrame();
     }
-
-//    private void createUIComponents() {
-//        jpTakyanGame = new TakyanGameScreen(this);
-//    }
 }

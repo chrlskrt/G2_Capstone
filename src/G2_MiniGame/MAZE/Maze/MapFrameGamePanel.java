@@ -2,6 +2,7 @@ package G2_MiniGame.MAZE.Maze;
 
 import G2_MiniGame.MAZE.Helpers.Sound;
 import G2_MiniGame.MAZE.MazeMenu;
+import G2_MiniGame.Main;
 import G2_MiniGame.MiniGame_MainMenu;
 import G2_MiniGame.Player;
 import G2_MiniGame.PlayersHandler;
@@ -70,7 +71,7 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
     //<--------------GAME LOOP------------------->
     public void run() {
-        Sound.play(new File("src/G2_MiniGame/MAZE/Audio/bg_music.wav"), 1.5f);
+        Sound.playBg(new File("src/G2_MiniGame/MAZE/Audio/bg_music.wav"), 1.5f);
         long lastLoopTime = System.nanoTime();
         long lastFpsTime = 0;
         int current_fps = 1;
@@ -92,8 +93,11 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
                 } else {
                     JOptionPane.showMessageDialog(null, "Too bad!");
                     Sound.stopSound();
+                    Sound.stopBg();
+
                     frame.dispose();
                     new MazeMenu();
+                    Main.playBg();
                 }
             }
 
@@ -133,10 +137,16 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
     private void updatePlayerScore() {
         Player p = MiniGame_MainMenu.currentPlayer;
+
+        if (Win){
+            time_score = 1000 - time_score;
+        }
         if (p.getMazeScore() < time_score){
             p.setMazeScore(time_score);
             handler.updatePlayersFile();
         }
+
+        Win = false;
     }
 
 
@@ -184,6 +194,7 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
             if(game_changer == 2){
                 //WIN
+                Win = true;
                 try {
                     gsp.setBackgroundImage("src/G2_MiniGame/MAZE/Animations/Screens/sc1.png");
                 } catch (IOException e) {

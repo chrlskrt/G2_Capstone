@@ -61,7 +61,7 @@ public class MazeMenu extends JFrame {
         });
 
         btnPlayGame.addActionListener(e -> {
-            Main.clip.stop();
+            Main.stopSound();
             playSound("src/G2_MiniGame/Audio/click.wav");
 
             dispose();

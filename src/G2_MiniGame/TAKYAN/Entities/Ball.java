@@ -100,6 +100,7 @@ public class Ball extends RenderObj implements Updater{
             }else{
                 TakyanGameScreen.window.dispose();
                 new TakyanMenu();
+                Main.playBg();
 
                 TakyanGameScreen.currentScore.resetScore();
             }
@@ -117,8 +118,6 @@ public class Ball extends RenderObj implements Updater{
 
     @Override
     public void paintComponent(Graphics2D g) {
-//        g.setColor(Color.RED);
-//        g.fillOval(xCoordinate - radius, yCoordinate - radius, radius * 2, radius * 2);
         if (ballImage != null) {
             // Draw the ball's image at the specified coordinates
             g.drawImage(ballImage, xCoordinate - radius, yCoordinate - radius, null);
