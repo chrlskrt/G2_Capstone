@@ -1,4 +1,4 @@
-package G2_MiniGame;
+package G2_MiniGame.data;
 
 import java.util.Comparator;
 

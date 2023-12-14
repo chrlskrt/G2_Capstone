@@ -1,4 +1,9 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameUtils.Listeners;
+
+import G2_MiniGame.WORDLE.GameComponents.Tile;
+import G2_MiniGame.WORDLE.GameComponents.TilePanel;
+import G2_MiniGame.WORDLE.GameScreen.WordleGame;
+import G2_MiniGame.WORDLE.GameUtils.TilePositionTracker;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

@@ -3,6 +3,8 @@ package G2_MiniGame;
 import G2_MiniGame.MAZE.MazeMenu;
 import G2_MiniGame.TAKYAN.TakyanMenu;
 import G2_MiniGame.WORDLE.WordleMenu;
+import G2_MiniGame.data.Player;
+import G2_MiniGame.data.PlayersHandler;
 
 import javax.swing.*;
 import java.awt.event.*;

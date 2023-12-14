@@ -1,4 +1,6 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameComponents;
+
+import G2_MiniGame.WORDLE.GameComponents.Tile;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,11 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameUtils.Listeners;
 
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.PlayersHandler;
+import G2_MiniGame.data.PlayersHandler;
+import G2_MiniGame.WORDLE.GameUtils.AnswerHandler;
+import G2_MiniGame.WORDLE.GameComponents.TilePanel;
+import G2_MiniGame.WORDLE.GameScreen.WordleGame;
+import G2_MiniGame.WORDLE.GameUtils.TilePositionTracker;
 
 
 import javax.swing.*;

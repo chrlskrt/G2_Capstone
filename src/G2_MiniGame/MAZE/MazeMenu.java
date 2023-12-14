@@ -3,8 +3,8 @@ package G2_MiniGame.MAZE;
 import G2_MiniGame.MAZE.Maze.MapFrame;
 import G2_MiniGame.Main;
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.Player;
-import G2_MiniGame.PlayersHandler;
+import G2_MiniGame.data.Player;
+import G2_MiniGame.data.PlayersHandler;
 
 import javax.swing.*;
 

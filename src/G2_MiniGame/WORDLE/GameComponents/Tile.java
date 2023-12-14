@@ -1,4 +1,4 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameComponents;
 
 import javax.swing.*;
 import javax.swing.border.Border;

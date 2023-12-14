@@ -1,4 +1,4 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameUtils;
 
 public class TilePositionTracker {
     // STATIC CLASS

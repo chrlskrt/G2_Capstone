@@ -1,4 +1,6 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameUtils;
+
+import G2_MiniGame.WORDLE.GameComponents.Tile;
 
 public interface AnswerHandler {
 

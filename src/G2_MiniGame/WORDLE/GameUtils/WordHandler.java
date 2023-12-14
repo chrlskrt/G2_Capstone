@@ -1,4 +1,4 @@
-package G2_MiniGame.WORDLE;
+package G2_MiniGame.WORDLE.GameUtils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

@@ -1,8 +1,9 @@
 package G2_MiniGame.WORDLE;
 
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.PlayersHandler;
-import G2_MiniGame.Player;
+import G2_MiniGame.data.PlayersHandler;
+import G2_MiniGame.data.Player;
+import G2_MiniGame.WORDLE.GameScreen.WordleGame;
 
 import javax.swing.*;
 import java.io.*;

@@ -4,8 +4,8 @@ import G2_MiniGame.MAZE.Helpers.Sound;
 import G2_MiniGame.MAZE.MazeMenu;
 import G2_MiniGame.Main;
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.Player;
-import G2_MiniGame.PlayersHandler;
+import G2_MiniGame.data.Player;
+import G2_MiniGame.data.PlayersHandler;
 
 import javax.swing.*;
 import java.awt.*;

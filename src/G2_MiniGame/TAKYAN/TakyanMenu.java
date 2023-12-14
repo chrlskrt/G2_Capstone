@@ -2,11 +2,9 @@ package G2_MiniGame.TAKYAN;
 
 import G2_MiniGame.Main;
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.Player;
-import G2_MiniGame.PlayersHandler;
-import G2_MiniGame.TAKYAN.Entities.Ball;
+import G2_MiniGame.data.Player;
+import G2_MiniGame.data.PlayersHandler;
 import G2_MiniGame.TAKYAN.GameScreens.TakyanGameFrame;
-import G2_MiniGame.TAKYAN.GameScreens.TakyanGameScreen;
 
 import javax.swing.*;
 

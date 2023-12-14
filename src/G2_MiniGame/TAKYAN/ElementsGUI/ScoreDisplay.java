@@ -1,11 +1,10 @@
 package G2_MiniGame.TAKYAN.ElementsGUI;
 
 import G2_MiniGame.MiniGame_MainMenu;
-import G2_MiniGame.PlayersHandler;
+import G2_MiniGame.data.PlayersHandler;
 import G2_MiniGame.TAKYAN.GameUtils.RenderObj;
 
 import java.awt.*;
-import java.io.*;
 
 public class ScoreDisplay extends RenderObj {
     private int scoreDisplay;
