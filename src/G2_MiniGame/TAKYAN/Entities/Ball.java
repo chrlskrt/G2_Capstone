@@ -98,10 +98,8 @@ public class Ball extends RenderObj implements Updater{
 
                 TakyanGameScreen.game.run();
             }else{
-//                TakyanGameScreen.game.stop();
                 TakyanGameScreen.window.dispose();
                 new TakyanMenu();
-
 
                 TakyanGameScreen.currentScore.resetScore();
             }

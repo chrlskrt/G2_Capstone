@@ -42,15 +42,6 @@ public class Paddle extends RenderObj implements Updater {
     public void update() {
         mouse = game.mouse;
         xCoordinate = mouse.x;
-//        yCoordinate = mouse.y;
-//        yCoordinate = Main.WINDOW_SIZE_Y - 20;
-//        if(yCoordinate >= Main.WINDOW_SIZE_Y - height){
-//            yCoordinate = Main.WINDOW_SIZE_Y - height;
-//        }
-//
-//        if(xCoordinate + width / 2 >= Main.WINDOW_SIZE_X){
-//            xCoordinate = Main.WINDOW_SIZE_X - width / 2;
-//        }
 
         yCoordinate = TakyanGameScreen.WINDOW_SIZE_Y - 20;
         if(yCoordinate >= TakyanGameScreen.WINDOW_SIZE_Y - height){
