@@ -85,7 +85,7 @@ public class MazeMenu extends JFrame {
         JTextField[] tops = {tfFirst, tfSecond, tfThird, tfFourth, tfFifth};
         JLabel[] lblScores = {lblFirst, lblSecond, lblThird, lblFourth, lblFifth};
 
-        handler.sortWordleScore();
+        handler.sortMazeScore();
         int i = 0;
         for (Player p : handler.getPlayersList()){
             if (i < 5){
