@@ -11,9 +11,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-import javax.swing.OverlayLayout;
+import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 
 public class Game implements Runnable {
@@ -65,12 +63,13 @@ public class Game implements Runnable {
         frame.pack();
         frame.setLocationRelativeTo(null);
 
-        inputListener = new InputListener();
-        frame.addKeyListener(inputListener);
-        pane.addMouseMotionListener(inputListener);
-        pane.addMouseListener(inputListener);
+
+//        frame.addKeyListener(inputListener);
+//        pane.addMouseMotionListener(inputListener);
+//        pane.addMouseListener(inputListener);
         keys = new boolean[256];
         mouse = new Mouse();
+        inputListener = new InputListener(frame, pane);
     }
 
     public void add(Object obj) throws IllegalArgumentException {
@@ -168,6 +167,22 @@ class InputListener implements KeyListener, MouseInputListener {
 
     private boolean[] keys = new boolean[265];
     private Mouse mouse = new Mouse();
+
+    private JFrame frame;
+//    private boolean[]keys;
+//    private Mouse mouse;
+    private JLayeredPane pane;
+
+
+    public InputListener(JFrame frame, JLayeredPane pane){
+        this.frame =frame;
+        this.pane = pane;
+
+        frame.addKeyListener(this);
+        pane.addMouseMotionListener(this);
+        pane.addMouseListener(this);
+   }
+
 
     public void keyPressed(KeyEvent e) {
         keys[e.getKeyCode()] = true;

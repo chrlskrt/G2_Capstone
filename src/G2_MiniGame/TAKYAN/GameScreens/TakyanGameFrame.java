@@ -15,7 +15,7 @@ public class TakyanGameFrame extends JFrame {
         setLocationRelativeTo(null);
         ImageIcon logo = new ImageIcon("src/G2_MiniGame/TAKYAN/Assets/ball.png");
         setIconImage(logo.getImage());
-//        add(takyan);
+
         takyan = new TakyanGameScreen(this);
         takyan.startGame();
         Ball.GameOver = false;

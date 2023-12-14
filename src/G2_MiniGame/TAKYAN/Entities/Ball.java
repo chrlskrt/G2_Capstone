@@ -16,7 +16,6 @@ import java.io.*;
 
 public class Ball extends RenderObj implements Updater{
     private int xCoordinate = TakyanGameScreen.WINDOW_SIZE_X / 2;
-    // private int xCoordinate = Main.WINDOW_SIZE_X / 2;
     private final int xInitial = xCoordinate;
     private int yCoordinate = 40;
     private final int yInitial = yCoordinate;

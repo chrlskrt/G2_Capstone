@@ -67,7 +67,6 @@ public class TakyanMenu extends JFrame{
 
         // Leaderboards tab
         btnLeadHome.addActionListener(e -> {
-            Main.clip.start();
             displayMenu();
         });
     }

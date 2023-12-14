@@ -3,7 +3,7 @@
   <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="114" y="20" width="916" height="668"/>
+      <xy x="114" y="20" width="916" height="1003"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -17,7 +17,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <grid id="92004" binding="jpMazeMenu" layout-manager="GridLayoutManager" row-count="11" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+          <grid id="92004" binding="jpMazeMenu" layout-manager="GridLayoutManager" row-count="10" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <tabbedpane title=""/>
@@ -49,7 +49,7 @@
               </component>
               <component id="46d8d" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="0" column="3" row-span="10" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="2" column="3" row-span="6" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <icon value="G2_MiniGame/Wallpapers/ghost2.png"/>
@@ -58,16 +58,46 @@
               </component>
               <component id="f1bbd" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="2" column="0" row-span="8" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="0" row-span="4" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <icon value="G2_MiniGame/Wallpapers/haunted.png"/>
                   <text value=""/>
                 </properties>
               </component>
+              <component id="8d97d" class="javax.swing.JLabel" binding="lblPlayer">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Dhurjati" size="48"/>
+                  <foreground color="-9369340"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="13ff8" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <icon value="G2_MiniGame/Wallpapers/bats.png"/>
+                  <text value=""/>
+                </properties>
+              </component>
+              <component id="12bb7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-5841988"/>
+                  <font name="Dhurjati" size="42"/>
+                  <foreground color="-2495007"/>
+                  <text value=" Ready To Run?"/>
+                </properties>
+              </component>
               <component id="880d8" class="javax.swing.JButton" binding="btnPlayGame">
                 <constraints>
-                  <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <alignmentY value="0.5"/>
@@ -91,61 +121,11 @@
                   <text value=" Leaderboards "/>
                 </properties>
               </component>
-              <vspacer id="aeb22">
-                <constraints>
-                  <grid row="9" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <vspacer id="4171c">
-                <constraints>
-                  <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <vspacer id="b0e37">
-                <constraints>
-                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <vspacer id="eebc7">
+              <vspacer id="a9b66">
                 <constraints>
                   <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
-              <vspacer id="a39a9">
-                <constraints>
-                  <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                </constraints>
-              </vspacer>
-              <component id="8d97d" class="javax.swing.JLabel" binding="lblPlayer">
-                <constraints>
-                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <font name="Dhurjati" size="48"/>
-                  <foreground color="-9369340"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="13ff8" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <icon value="G2_MiniGame/Wallpapers/bats.png"/>
-                  <text value=""/>
-                </properties>
-              </component>
-              <component id="12bb7" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="4" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-5841988"/>
-                  <font name="Dhurjati" size="42"/>
-                  <foreground color="-2495007"/>
-                  <text value=" Ready To Run?"/>
-                </properties>
-              </component>
             </children>
           </grid>
           <grid id="14f26" binding="jpLeaderboards" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

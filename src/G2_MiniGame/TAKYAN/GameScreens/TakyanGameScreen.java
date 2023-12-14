@@ -32,8 +32,8 @@ public class TakyanGameScreen extends JPanel {
         game.add(new Background());
         game.add(currentScore);
         game.add(highScore);
-        game.add(new Ball());
         game.add(new Paddle());
+        game.add(new Ball());
         Thread musicThread = new Thread(() -> {
             bgMusic = Sound.play(GameSound.backgroundMusic);
         });

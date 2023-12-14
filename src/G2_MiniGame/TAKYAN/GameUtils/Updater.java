@@ -16,5 +16,5 @@ public interface Updater {
         updateChildren();
         update();
     }
-    public void update();
+    void update();
 }

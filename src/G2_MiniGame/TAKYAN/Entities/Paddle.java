@@ -11,12 +11,9 @@ import java.io.File;
 import java.io.IOException;
 
 public class Paddle extends RenderObj implements Updater {
-    private Mouse mouse;
-//    public static int xCoordinate = Main.WINDOW_SIZE_X / 2;
-//    public static int yCoordinate = Main.WINDOW_SIZE_Y - 40;
 
-    public static int xCoordinate = TakyanGameScreen.WINDOW_SIZE_X / 2;
-    public static int yCoordinate = TakyanGameScreen.WINDOW_SIZE_Y - 40;
+    public static int xCoordinate;
+    public static int yCoordinate;
     public static int width = 100;
     public static int height = 30;
     private BufferedImage paddleImage;
@@ -27,6 +24,9 @@ public class Paddle extends RenderObj implements Updater {
         } catch (IOException e) {
             System.out.println("Image of Tsinelas can't be found.");
         }
+
+        xCoordinate = TakyanGameScreen.WINDOW_SIZE_X / 2;
+        yCoordinate = TakyanGameScreen.WINDOW_SIZE_Y - 40;
     }
     @Override
     public void paintComponent(Graphics2D g) {
@@ -40,7 +40,7 @@ public class Paddle extends RenderObj implements Updater {
 
     @Override
     public void update() {
-        mouse = game.mouse;
+        Mouse mouse = game.mouse;
         xCoordinate = mouse.x;
 
         yCoordinate = TakyanGameScreen.WINDOW_SIZE_Y - 20;
