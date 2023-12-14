@@ -29,7 +29,6 @@ public class MazeMenu extends JFrame {
     private JButton btnHome;
     private JButton btnPlayGame;
     private JButton btnViewLeaderboards;
-    private JPanel jpMazeGame;
     private JLabel lblPlayer;
     PlayersHandler handler = PlayersHandler.getInstance();
 
@@ -71,16 +70,6 @@ public class MazeMenu extends JFrame {
             mapFrame.start();
         });
     }
-
-    // if mag-gamit sa mapframegamepanel
-    public void displayMazeGame(){
-        setContentPane(jpMazeGame);
-        revalidate();
-        repaint();
-
-        Main.stopSound();
-        new Thread((MapFrameGamePanel) jpMazeGame).start();
-    }
     public void displayMenu(){
         setContentPane(jpMazeMenu);
         revalidate();
@@ -106,9 +95,5 @@ public class MazeMenu extends JFrame {
                 i++;
             }
         }
-    }
-
-    private void createUIComponents() {
-        jpMazeGame = new MapFrameGamePanel();
     }
 }
