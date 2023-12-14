@@ -5,6 +5,7 @@ import G2_MiniGame.MiniGame_MainMenu;
 import G2_MiniGame.Player;
 import G2_MiniGame.PlayersHandler;
 import G2_MiniGame.TAKYAN.Entities.Ball;
+import G2_MiniGame.TAKYAN.GameScreens.TakyanGameFrame;
 import G2_MiniGame.TAKYAN.GameScreens.TakyanGameScreen;
 
 import javax.swing.*;
@@ -59,7 +60,9 @@ public class TakyanMenu extends JFrame{
 
         btnHowToPlay.addActionListener(e -> displayHowToPlay());
 
-        btnPlayGame.addActionListener(e -> displayTakyanGameScreen());
+        btnPlayGame.addActionListener(e -> {
+            displayTakyanGameScreen();
+        });
 
         // HowToPlay tab
         btnHowHome.addActionListener(e -> displayMenu());
@@ -105,16 +108,19 @@ public class TakyanMenu extends JFrame{
     }
 
     private void displayTakyanGameScreen(){
-        setContentPane(jpTakyanGame);
-        revalidate();
-        repaint();
+//        setContentPane(jpTakyanGame);
+//        revalidate();
+//        repaint();
+//
+//        Main.stopSound();
+//        ((TakyanGameScreen) jpTakyanGame).startGame();
+//        Ball.GameOver = false;
 
-        Main.stopSound();
-        ((TakyanGameScreen) jpTakyanGame).startGame();
-        Ball.GameOver = false;
+        dispose();
+        new TakyanGameFrame();
     }
 
-    private void createUIComponents() {
-        jpTakyanGame = new TakyanGameScreen(this);
-    }
+//    private void createUIComponents() {
+//        jpTakyanGame = new TakyanGameScreen(this);
+//    }
 }

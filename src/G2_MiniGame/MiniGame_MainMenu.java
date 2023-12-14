@@ -55,6 +55,10 @@ public class MiniGame_MainMenu extends JFrame {
     public MiniGame_MainMenu(){
         setUp();
         displayWelcome();
+
+        // set
+        setCurrPlayer(handler.getPlayersList().get(0));
+        displayMenu();
     }
 
     public void createButtonListeners(){
