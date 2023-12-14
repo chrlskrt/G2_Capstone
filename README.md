@@ -1,29 +1,19 @@
-# capstone
-final proj for OOP
+# Java Capstone
+  - Joshua Napiñas
+  - Charlene Repuesto
+  - Shanley Mae Sebial
+  - Zhazted Rhixin Valles
 
-go to src -> G2_MiniGame
+# Mini-Games
+  > Wordle
+  > Takyan
+  > Maze
 
+  To play: Run Main in src/G2_MiniGame.
 
-----------------------------
-# MiniGames_MainMenu
-  -> first frame na mo-show ig run sa Main
-  -> contains: Log-In, Sign-Up, and Home (MiniGames navigation) Panels
+  Creational Design Pattern:
+  + Singleton - PlayersHandler Class
+                    -> to read "Players" from a file once, and create one instance of the class to manage Players.
 
-# User Class
-  -> an abstract class for users
-  -> fields: String username, char [] password
-
-# Player Class
-  -> subclass of User
-  -> additional fields: int wordleScore, int mazeScore, int takyanScore, boolean isBanned
-  -> methods: getters and setters for each field
-  -> to implement: comparators for each score
-
-# HandlePlayers Class
-  -> will handle all Players in this MiniGame Application
-  -> fields: ArrayList <Player> playerlist
-  -> methods: 
-              void sort() - to be upgraded
-              int handleLogIn(String username, char [] password)
-
-  --- to be continued ---
+  Structural Design Pattern:
+  + Flyweight - 
