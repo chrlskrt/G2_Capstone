@@ -49,6 +49,7 @@ public class MazeMenu extends JFrame {
         btnHome.addActionListener(e -> {
             playSound("src/G2_MiniGame/Audio/click.wav");
             new MiniGame_MainMenu(true);
+            dispose();
         });
 
         btnViewLeaderboards.addActionListener(e -> {
