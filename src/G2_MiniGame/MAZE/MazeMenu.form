@@ -221,7 +221,7 @@
                 </constraints>
                 <properties>
                   <font name="Dhurjati" size="22"/>
-                  <foreground color="-13947600"/>
+                  <foreground color="-65543"/>
                   <horizontalAlignment value="0"/>
                   <text value=""/>
                 </properties>
@@ -255,7 +255,7 @@
                 </constraints>
                 <properties>
                   <font name="Dhurjati" size="22"/>
-                  <foreground color="-13947600"/>
+                  <foreground color="-65543"/>
                   <horizontalAlignment value="0"/>
                   <text value=""/>
                 </properties>
@@ -289,7 +289,7 @@
                 </constraints>
                 <properties>
                   <font name="Dhurjati" size="22"/>
-                  <foreground color="-13947600"/>
+                  <foreground color="-65543"/>
                   <horizontalAlignment value="0"/>
                   <text value=""/>
                 </properties>
@@ -323,7 +323,7 @@
                 </constraints>
                 <properties>
                   <font name="Dhurjati" size="22"/>
-                  <foreground color="-13947600"/>
+                  <foreground color="-65543"/>
                   <horizontalAlignment value="0"/>
                   <text value=""/>
                 </properties>
@@ -357,7 +357,7 @@
                 </constraints>
                 <properties>
                   <font name="Dhurjati" size="22"/>
-                  <foreground color="-13947600"/>
+                  <foreground color="-65543"/>
                   <horizontalAlignment value="0"/>
                   <text value=""/>
                 </properties>
