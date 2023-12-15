@@ -84,7 +84,7 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
             if(GameOver && option_ctr == 0){
                 option_ctr++;
-                int choice = JOptionPane.showConfirmDialog(null, "Final Score: " + time_score + "\nDo you Want to Play Again?", "Question", JOptionPane.YES_NO_OPTION);
+                int choice = JOptionPane.showConfirmDialog(null, "Final Score: " + (1000 -time_score) + "\nDo you Want to Play Again?", "Question", JOptionPane.YES_NO_OPTION);
                 updatePlayerScore();
 
                 if (choice == JOptionPane.YES_OPTION) {
@@ -112,7 +112,6 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
                 if(!GameOver){
                     map.update_map(mainCharacter.calculate_index());
                     time_score++;
-                    System.out.println("Current Score: " + time_score);
                 }
 
             }
@@ -140,6 +139,8 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
         if (Win){
             time_score = 1000 - time_score;
+        } else {
+            time_score = 0;
         }
         if (p.getMazeScore() < time_score){
             p.setMazeScore(time_score);
@@ -202,10 +203,9 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
                 }
 
                 Sound.play(new File("src/G2_MiniGame/MAZE/Audio/Victory.wav"), 1.5f);
-                System.out.println("Final score is " + time_score);
             } else {
                 //LOSE
-                time_score = 0;
+                time_score = 1000;
                 try {
                     gsp.setBackgroundImage("src/G2_MiniGame/MAZE/Animations/Screens/sc2.png");
                 } catch (IOException e) {
@@ -214,7 +214,6 @@ public class MapFrameGamePanel extends GamePanel implements Runnable, MouseListe
 
 
                 Sound.play(new File("src/G2_MiniGame/MAZE/Audio/jumpscare.wav"), 1.5f);
-                System.out.println("Final score is " + time_score);
             }
 
             gsp.show_panel();
