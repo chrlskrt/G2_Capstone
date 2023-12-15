@@ -26,14 +26,19 @@ public class TakyanGameScreen extends JPanel {
     public TakyanGameScreen(JFrame TakyanMenu){
         window = TakyanMenu;
     }
-
+    private static Paddle paddle;
+    private static Ball ball;
     public void startGame(){
         game = new Game(window, WINDOW_SIZE_X, WINDOW_SIZE_Y);
+        if(paddle!=null) paddle.remove();
+        if(ball!=null) ball.remove();
+        paddle=new Paddle();
+        ball=new Ball();
         game.add(new Background());
         game.add(currentScore);
         game.add(highScore);
-        game.add(new Paddle());
-        game.add(new Ball());
+        game.add(paddle);
+        game.add(ball);
         Thread musicThread = new Thread(() -> {
             bgMusic = Sound.play(GameSound.backgroundMusic);
         });
