@@ -39,7 +39,7 @@
               </component>
               <component id="b210b" class="javax.swing.JLabel">
                 <constraints>
-                  <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="1" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <font name="Dhurjati" size="48"/>
@@ -84,17 +84,6 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="12bb7" class="javax.swing.JLabel">
-                <constraints>
-                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <background color="-5841988"/>
-                  <font name="Dhurjati" size="42"/>
-                  <foreground color="-2495007"/>
-                  <text value=" Ready To Run?"/>
-                </properties>
-              </component>
               <component id="880d8" class="javax.swing.JButton" binding="btnPlayGame">
                 <constraints>
                   <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
@@ -126,6 +115,17 @@
                   <grid row="8" column="2" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
+              <component id="12bb7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-5841988"/>
+                  <font name="Dhurjati" size="42"/>
+                  <foreground color="-2495007"/>
+                  <text value=" Ready To Run?"/>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="14f26" binding="jpLeaderboards" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">

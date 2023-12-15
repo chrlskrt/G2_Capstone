@@ -509,7 +509,7 @@
                   <background color="-6518136"/>
                   <font name="Padauk Book" size="16"/>
                   <foreground color="-14277082"/>
-                  <text value="Log Out"/>
+                  <text value="Log Out "/>
                 </properties>
               </component>
               <component id="96370" class="javax.swing.JLabel">
