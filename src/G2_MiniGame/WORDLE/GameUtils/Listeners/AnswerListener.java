@@ -1,6 +1,7 @@
 package G2_MiniGame.WORDLE.GameUtils.Listeners;
 
 import G2_MiniGame.MiniGame_MainMenu;
+import G2_MiniGame.WORDLE.GameUtils.WordHandler;
 import G2_MiniGame.data.PlayersHandler;
 import G2_MiniGame.WORDLE.GameUtils.AnswerHandler;
 import G2_MiniGame.WORDLE.GameComponents.TilePanel;
@@ -28,11 +29,12 @@ public abstract class AnswerListener implements AnswerHandler {
         if (currentCol == wordleTiles.COLS){
             int flag = AnswerHandler.isWinning(wordleTiles.getRow(currentRow));
                 String[] options = {"Play again", "Exit"};
+                WordHandler wordHandler = WordHandler.getInstance();
             switch (flag){
                 case 0:
-                    if (currentRow == wordleTiles.ROWS){
+                    if (currentRow + 1 == wordleTiles.ROWS){
                         int result = JOptionPane.showOptionDialog(wordleFrame,
-                                "GAME OVER!!!","OH NO NO NO GWENCHANA GWENCHANA", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
+                                "GAME OVER!!!\nThe word is " + wordHandler.getAnswer() + ".","OH NO NO NO GWENCHANA GWENCHANA", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE,
                                 null, options, options[0]);
 
                         if (result == JOptionPane.YES_OPTION){
